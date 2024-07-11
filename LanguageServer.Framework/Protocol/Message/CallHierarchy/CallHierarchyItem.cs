@@ -12,7 +12,7 @@ public class CallHierarchyItem
      * The name of this item.
      */
     [JsonPropertyName("name")]
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
     /**
      * The kind of this item.

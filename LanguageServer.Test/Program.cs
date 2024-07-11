@@ -43,5 +43,7 @@ ls.AddHandler(new TypeDefinitionHandler());
 ls.AddHandler(new CallHierarchyHandler());
 ls.AddHandler(new CompletionHandler());
 ls.AddHandler(new HoverHandler());
+ls.AddHandler(new SignatureHelpHandler());
+ls.AddHandler(new DocumentHighlightHandler());
 
 await ls.Run();

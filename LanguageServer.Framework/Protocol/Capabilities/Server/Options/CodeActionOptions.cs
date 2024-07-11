@@ -13,7 +13,7 @@ public class CodeActionOptions : WorkDoneProgressOptions
      * or the server may list out every specific kind they provide.
      */
     [JsonPropertyName("codeActionKinds")]
-    public List<CodeActionKind> CodeActionKinds { get; set; }
+    public List<CodeActionKind> CodeActionKinds { get; set; } = [];
 
     /**
      * Static documentation for a class of code actions.
@@ -37,7 +37,7 @@ public class CodeActionOptions : WorkDoneProgressOptions
      * @proposed
      */
     [JsonPropertyName("documentation")]
-    public List<CodeActionKindDocumentation> Documentation { get; set; }
+    public List<CodeActionKindDocumentation> Documentation { get; set; } = [];
 }
 
 /**

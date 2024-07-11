@@ -8,12 +8,14 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.CallHierarchy;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Completion;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Declaration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Definition;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentHighlight;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Hover;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Implementation;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Initialize;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.NotebookDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Reference;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Registration;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.SignatureHelp;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TextDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TypeDefinition;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
@@ -148,5 +150,9 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(InsertAndReplaceRange))]
 [JsonSerializable(typeof(HoverParams))]
 [JsonSerializable(typeof(HoverResponse))]
+[JsonSerializable(typeof(SignatureHelpParams))]
+[JsonSerializable(typeof(DocumentHighlightParams))]
+[JsonSerializable(typeof(DocumentHighlightResponse))]
+[JsonSerializable(typeof(List<DocumentHighlight>))]
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class JsonProtocolContext: JsonSerializerContext;

@@ -84,7 +84,7 @@ public class CodeActionLiteralSupportClientCapabilities
      * set.
      */
     [JsonPropertyName("codeActionKind")]
-    public CodeActionKindClientCapabilities CodeActionKind { get; init; }
+    public CodeActionKindClientCapabilities CodeActionKind { get; init; } = null!;
 }
 
 public class CodeActionKindClientCapabilities

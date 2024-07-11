@@ -22,6 +22,6 @@ public class SemanticTokensOptions : WorkDoneProgressOptions
     /**
      * Server supports providing semantic tokens for a full document.
      */
-    [JsonPropertyName("full"), JsonConverter(typeof(SemanticTokensCapabilitiesFull))]
+    [JsonPropertyName("full"), JsonConverter(typeof(BooleanOrConverter<SemanticTokensCapabilitiesFull>))]
     public BooleanOr<SemanticTokensCapabilitiesFull>? Full { get; init; }
 }
