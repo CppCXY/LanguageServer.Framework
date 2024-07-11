@@ -6,6 +6,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.JsonRpc;
 using EmmyLua.LanguageServer.Framework.Protocol.Message;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.CallHierarchy;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.CodeAction;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.CodeLens;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Completion;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Declaration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Definition;
@@ -165,5 +166,10 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(CodeActionResponse))]
 [JsonSerializable(typeof(CommandOrCodeAction))]
 [JsonSerializable(typeof(List<CommandOrCodeAction>))]
+[JsonSerializable(typeof(Registration))]
+[JsonSerializable(typeof(CodeLens))]
+[JsonSerializable(typeof(List<CodeLens>))]
+[JsonSerializable(typeof(CodeLensParams))]
+[JsonSerializable(typeof(CodeLensResponse))]
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class JsonProtocolContext: JsonSerializerContext;
