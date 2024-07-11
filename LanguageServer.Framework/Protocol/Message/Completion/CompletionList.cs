@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
 using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
@@ -83,7 +84,7 @@ public class CompletionListItemDefault
      * @since 3.17.0
      */
     [JsonPropertyName("data")]
-    public JsonDocument? Data { get; set; }
+    public LSPAny? Data { get; set; }
 }
 
 [JsonConverter(typeof(CompletionListItemDefaultEditRangeJsonConverter))]

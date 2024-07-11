@@ -206,5 +206,5 @@ public class CompletionItem
      * a completion and a completion resolve request.
      */
     [JsonPropertyName("data")]
-    public JsonDocument? Data { get; set; }
+    public LSPAny? Data { get; set; }
 }

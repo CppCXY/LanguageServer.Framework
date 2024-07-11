@@ -66,5 +66,5 @@ public class Diagnostic
      * @since 3.16.0
      */
     [JsonPropertyName("data")]
-    public object? Data { get; set; }
+    public LSPAny? Data { get; set; }
 }

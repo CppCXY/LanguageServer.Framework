@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.CodeAction;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Capabilities.Client.TextDocumentClientCapabilities;

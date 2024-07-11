@@ -52,14 +52,14 @@ public static class ErrorCodes
 public record ResponseError(
     int Code,
     string Message,
-    object? Data
+    JsonDocument? Data
 )
 {
     [JsonPropertyName("code")] public int Code { get; } = Code;
 
     [JsonPropertyName("message")] public string Message { get; } = Message;
 
-    [JsonPropertyName("data")] public object? Data { get; } = Data;
+    [JsonPropertyName("data")] public JsonDocument? Data { get; } = Data;
 }
 
 public record ResponseMessage(

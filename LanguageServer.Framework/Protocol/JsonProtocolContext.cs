@@ -5,10 +5,12 @@ using EmmyLua.LanguageServer.Framework.Protocol.Capabilities.Server.Options;
 using EmmyLua.LanguageServer.Framework.Protocol.JsonRpc;
 using EmmyLua.LanguageServer.Framework.Protocol.Message;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.CallHierarchy;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.CodeAction;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Completion;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Declaration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Definition;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentHighlight;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentSymbol;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Hover;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Implementation;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Initialize;
@@ -154,5 +156,14 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(DocumentHighlightParams))]
 [JsonSerializable(typeof(DocumentHighlightResponse))]
 [JsonSerializable(typeof(List<DocumentHighlight>))]
+[JsonSerializable(typeof(DocumentSymbolParams))]
+[JsonSerializable(typeof(DocumentSymbolResponse))]
+[JsonSerializable(typeof(List<DocumentSymbol>))]
+[JsonSerializable(typeof(CodeAction))]
+[JsonSerializable(typeof(List<CodeAction>))]
+[JsonSerializable(typeof(CodeActionParams))]
+[JsonSerializable(typeof(CodeActionResponse))]
+[JsonSerializable(typeof(CommandOrCodeAction))]
+[JsonSerializable(typeof(List<CommandOrCodeAction>))]
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class JsonProtocolContext: JsonSerializerContext;

@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentSymbol;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
 using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
@@ -55,5 +56,5 @@ public class CallHierarchyItem
      * A data entry field that is preserved between a call hierarchy prepare and a call hierarchy incoming calls or outgoing calls request.
      */
     [JsonPropertyName("data")]
-    public JsonDocument? Data { get; set; }
+    public LSPAny? Data { get; set; }
 }

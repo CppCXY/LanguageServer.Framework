@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentSymbol;
 
 [JsonConverter(typeof(SymbolKindJsonConverter))]
 public readonly record struct SymbolKind(int Value)
