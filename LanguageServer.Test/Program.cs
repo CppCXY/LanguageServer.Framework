@@ -50,5 +50,6 @@ ls.AddHandler(new CodeActionHandler());
 ls.AddHandler(new CodeLensHandler());
 ls.AddHandler(new DocumentLinkHandler());
 ls.AddHandler(new DocumentColorHandler());
+ls.AddHandler(new DocumentFormattingHandler());
 
 await ls.Run();
