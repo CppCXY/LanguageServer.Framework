@@ -10,7 +10,9 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.CodeLens;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Completion;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Declaration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Definition;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentColor;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentHighlight;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentLink;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentSymbol;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Hover;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Implementation;
@@ -171,5 +173,17 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(List<CodeLens>))]
 [JsonSerializable(typeof(CodeLensParams))]
 [JsonSerializable(typeof(CodeLensResponse))]
+[JsonSerializable(typeof(DocumentLinkParams))]
+[JsonSerializable(typeof(DocumentLinkResponse))]
+[JsonSerializable(typeof(DocumentLink))]
+[JsonSerializable(typeof(List<DocumentLink>))]
+[JsonSerializable(typeof(DocumentColorParams))]
+[JsonSerializable(typeof(DocumentColorResponse))]
+[JsonSerializable(typeof(ColorInformation))]
+[JsonSerializable(typeof(List<ColorInformation>))]
+[JsonSerializable(typeof(ColorPresentationParams))]
+[JsonSerializable(typeof(ColorPresentationResponse))]
+[JsonSerializable(typeof(ColorPresentation))]
+[JsonSerializable(typeof(List<ColorPresentation>))]
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class JsonProtocolContext: JsonSerializerContext;

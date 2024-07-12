@@ -47,5 +47,8 @@ ls.AddHandler(new SignatureHelpHandler());
 ls.AddHandler(new DocumentHighlightHandler());
 ls.AddHandler(new DocumentSymbolHandler());
 ls.AddHandler(new CodeActionHandler());
+ls.AddHandler(new CodeLensHandler());
+ls.AddHandler(new DocumentLinkHandler());
+ls.AddHandler(new DocumentColorHandler());
 
 await ls.Run();

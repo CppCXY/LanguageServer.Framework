@@ -7,6 +7,10 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Model;
 public record struct DocumentUri(Uri Uri)
 {
     public Uri Uri { get; } = Uri;
+
+    public static implicit operator DocumentUri(Uri uri) => new DocumentUri(uri);
+
+    public static implicit operator DocumentUri(string uri) => new DocumentUri(new Uri(uri));
 }
 
 public class DocumentUriConverter : JsonConverter<DocumentUri>
