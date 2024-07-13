@@ -9,23 +9,28 @@ public class MessageConverter : JsonConverter<Message>
     {
         using var jsonDoc = JsonDocument.ParseValue(ref reader);
         var root = jsonDoc.RootElement;
-        var paramsJson = root.GetProperty("params").GetRawText();
         if (root.TryGetProperty("method", out var methodElement) && methodElement.GetString() is { } method)
         {
+            JsonDocument? paramDocument = null;
+            if (root.TryGetProperty("params", out var param))
+            {
+                paramDocument = JsonDocument.Parse(param.GetRawText());
+            }
+
             if (root.TryGetProperty("id", out var id))
             {
                 if (id.ValueKind == JsonValueKind.Number)
                 {
-                    return new RequestMessage(id.GetInt32(), method, JsonDocument.Parse(paramsJson));
+                    return new RequestMessage(id.GetInt32(), method, paramDocument);
                 }
                 else if (id.ValueKind == JsonValueKind.String)
                 {
-                    return new RequestMessage(id.GetString()!, method, JsonDocument.Parse(paramsJson));
+                    return new RequestMessage(id.GetString()!, method, paramDocument);
                 }
             }
             else
             {
-                return new NotificationMessage(method, JsonDocument.Parse(paramsJson));
+                return new NotificationMessage(method, paramDocument);
             }
         }
 
