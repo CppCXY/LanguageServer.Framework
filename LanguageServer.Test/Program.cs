@@ -52,4 +52,6 @@ ls.AddHandler(new DocumentLinkHandler());
 ls.AddHandler(new DocumentColorHandler());
 ls.AddHandler(new DocumentFormattingHandler());
 ls.AddHandler(new RenameHandler());
+ls.AddHandler(new FoldingRangeHandler());
+
 await ls.Run();

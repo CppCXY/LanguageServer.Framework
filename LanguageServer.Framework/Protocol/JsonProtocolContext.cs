@@ -15,6 +15,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentFormatting;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentHighlight;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentLink;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentSymbol;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Hover;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Implementation;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Initialize;
@@ -34,6 +35,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Model.TextDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.TextEdit;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.WorkDoneProgress;
+using FoldingRangeKind = EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange.FoldingRangeKind;
 using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 
@@ -195,5 +197,10 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(RenameParams))]
 [JsonSerializable(typeof(PrepareRenameParams))]
 [JsonSerializable(typeof(PrepareRenameResponse))]
+[JsonSerializable(typeof(FoldingRangeParams))]
+[JsonSerializable(typeof(FoldingRangeResponse))]
+[JsonSerializable(typeof(FoldingRange))]
+[JsonSerializable(typeof(List<FoldingRange>))]
+[JsonSerializable(typeof(FoldingRangeKind))]
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class JsonProtocolContext: JsonSerializerContext;

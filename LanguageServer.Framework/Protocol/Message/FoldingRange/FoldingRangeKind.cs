@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange;
 
 /**
  * Enum of known range kinds
