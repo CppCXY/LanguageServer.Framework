@@ -36,6 +36,21 @@ public class ClientProxy(LanguageServer server)
         return server.SendNotification(notification);
     }
 
+    public async Task RefreshWorkspaceTokens()
+    {
+        await server.SendRequest("workspace/semanticTokens/refresh", null, CancellationToken.None);
+    }
+
+    public async Task RefreshInlineValues()
+    {
+        await server.SendRequest("workspace/inlineValue/refresh", null, CancellationToken.None);
+    }
+
+    public async Task RefreshInlayHint()
+    {
+        await server.SendRequest("workspace/inlayHint/refresh", null, CancellationToken.None);
+    }
+
     public async Task<JsonDocument?> SendRequest(string method, JsonDocument document, CancellationToken token)
     {
         var response = server.SendRequest(method, document, token);

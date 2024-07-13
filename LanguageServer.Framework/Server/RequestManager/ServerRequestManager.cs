@@ -11,7 +11,7 @@ public class ServerRequestManager
 
     private int _idCount = 0;
 
-    public RequestMessage MakeRequest(string method, JsonDocument @params)
+    public RequestMessage MakeRequest(string method, JsonDocument? @params)
     {
         var id = Interlocked.Increment(ref _idCount);
         _intRequestTokens[id] = new TaskCompletionSource<JsonDocument?>();

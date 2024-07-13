@@ -95,7 +95,7 @@ public class LanguageServer
         return Task.CompletedTask;
     }
 
-    public async Task<JsonDocument?> SendRequest(string method, JsonDocument @param, CancellationToken token)
+    public async Task<JsonDocument?> SendRequest(string method, JsonDocument? @param, CancellationToken token)
     {
         var request = ServerRequestManager.MakeRequest(method, @param);
         Writer.WriteRequest(request);

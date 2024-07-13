@@ -23,12 +23,18 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Hover;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Implementation;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Initialize;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.InlayHint;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.InlineValue;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.LinkedEditingRange;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.NotebookDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Reference;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Rename;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.SelectionRange;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.SemanticToken;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.SignatureHelp;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TextDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TypeDefinition;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.TypeHierarchy;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Diagnostic;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.File;
@@ -210,5 +216,38 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(ApplyWorkspaceEditResult))]
 [JsonSerializable(typeof(ShowMessageParams))]
 [JsonSerializable(typeof(MessageType))]
+[JsonSerializable(typeof(SelectionRangeParams))]
+[JsonSerializable(typeof(SelectionRangeResponse))]
+[JsonSerializable(typeof(SelectionRange))]
+[JsonSerializable(typeof(List<SelectionRange>))]
+[JsonSerializable(typeof(LinkedEditingRangeParams))]
+[JsonSerializable(typeof(LinkedEditingRanges))]
+[JsonSerializable(typeof(List<LinkedEditingRanges>))]
+[JsonSerializable(typeof(SemanticTokensParams))]
+[JsonSerializable(typeof(SemanticTokensDeltaResponse))]
+[JsonSerializable(typeof(SemanticTokensPartialResult))]
+[JsonSerializable(typeof(SemanticTokensDeltaPartialResult))]
+[JsonSerializable(typeof(SemanticTokensEdit))]
+[JsonSerializable(typeof(List<SemanticTokensEdit>))]
+[JsonSerializable(typeof(SemanticTokensRangeParams))]
+[JsonSerializable(typeof(TypeHierarchyItem))]
+[JsonSerializable(typeof(List<TypeHierarchyItem>))]
+[JsonSerializable(typeof(TypeHierarchyResponse))]
+[JsonSerializable(typeof(TypeHierarchyPrepareParams))]
+[JsonSerializable(typeof(TypeHierarchySupertypesParams))]
+[JsonSerializable(typeof(TypeHierarchySubtypesParams))]
+[JsonSerializable(typeof(InlineValueParams))]
+[JsonSerializable(typeof(InlineValueResponse))]
+[JsonSerializable(typeof(InlineValue))]
+[JsonSerializable(typeof(List<InlineValue>))]
+[JsonSerializable(typeof(InlineValueText))]
+[JsonSerializable(typeof(InlineValueVariableLookup))]
+[JsonSerializable(typeof(InlineValueEvaluatableExpression))]
+[JsonSerializable(typeof(InlayHintParams))]
+[JsonSerializable(typeof(InlayHintResponse))]
+[JsonSerializable(typeof(InlayHint))]
+[JsonSerializable(typeof(List<InlayHint>))]
+[JsonSerializable(typeof(InlayHintLabelPart))]
+[JsonSerializable(typeof(List<InlayHintLabelPart>))]
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class JsonProtocolContext: JsonSerializerContext;
