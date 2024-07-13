@@ -53,5 +53,6 @@ ls.AddHandler(new DocumentColorHandler());
 ls.AddHandler(new DocumentFormattingHandler());
 ls.AddHandler(new RenameHandler());
 ls.AddHandler(new FoldingRangeHandler());
+ls.AddHandler(new ExecuteCommandHandler(ls));
 
 await ls.Run();

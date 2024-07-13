@@ -34,7 +34,9 @@ public class LanguageServer
 
     private IScheduler Scheduler { get; set; } = new SingleThreadScheduler();
 
-    private RequestTokenManager RequestTokenManager { get; } = new();
+    private ClientRequestTokenManager ClientRequestTokenManager { get; } = new();
+
+    private ServerRequestManager ServerRequestManager { get; } = new();
 
     // ReSharper disable once CollectionNeverQueried.Local
     internal List<IJsonHandler> Handlers { get; } = new();
@@ -93,6 +95,13 @@ public class LanguageServer
         return Task.CompletedTask;
     }
 
+    public async Task<JsonDocument?> SendRequest(string method, JsonDocument @param, CancellationToken token)
+    {
+        var request = ServerRequestManager.MakeRequest(method, @param);
+        Writer.WriteRequest(request);
+        return await ServerRequestManager.WaitResponse(request.Id, token);
+    }
+
     public delegate void InitializeEvent(InitializeParams request, ServerInfo serverInfo);
 
     internal InitializeEvent? InitializeEventDelegate;
@@ -129,7 +138,7 @@ public class LanguageServer
         StartEventDelegate += handler;
     }
 
-    private async Task OnDispatch(MethodMessage message)
+    private async Task OnDispatch(Message message)
     {
         switch (message)
         {
@@ -139,7 +148,7 @@ public class LanguageServer
                 {
                     try
                     {
-                        var token = RequestTokenManager.Create(request.Id);
+                        var token = ClientRequestTokenManager.Create(request.Id);
                         var result = await handler(request, token).ConfigureAwait(false);
                         if (!token.IsCancellationRequested)
                         {
@@ -178,7 +187,7 @@ public class LanguageServer
                     }
                     finally
                     {
-                        RequestTokenManager.ClearToken(request.Id);
+                        ClientRequestTokenManager.ClearToken(request.Id);
                     }
                 }
                 else
@@ -201,10 +210,15 @@ public class LanguageServer
 
                 break;
             }
+            case ResponseMessage response:
+            {
+                ServerRequestManager.OnResponse(response.Id, response.Result);
+                break;
+            }
         }
     }
 
-    private bool BaseHandle(MethodMessage message)
+    private bool BaseHandle(Message message)
     {
         if (message is RequestMessage requestMessage)
         {
@@ -227,7 +241,7 @@ public class LanguageServer
                 var cancelParams = notification.Params?.Deserialize<CancelParams>(JsonSerializerOptions);
                 if (cancelParams != null)
                 {
-                    RequestTokenManager.CancelToken(cancelParams.Id);
+                    ClientRequestTokenManager.CancelToken(cancelParams.Id);
                 }
 
                 return true;

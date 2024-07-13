@@ -5,6 +5,9 @@ using EmmyLua.LanguageServer.Framework.Protocol.Capabilities.Server.Options;
 using EmmyLua.LanguageServer.Framework.Protocol.JsonRpc;
 using EmmyLua.LanguageServer.Framework.Protocol.Message;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.CallHierarchy;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ApplyWorkspaceEdit;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.Registration;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ShowMessage;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.CodeAction;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.CodeLens;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Completion;
@@ -15,13 +18,13 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentFormatting;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentHighlight;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentLink;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentSymbol;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.ExecuteCommand;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Hover;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Implementation;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Initialize;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.NotebookDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Reference;
-using EmmyLua.LanguageServer.Framework.Protocol.Message.Registration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Rename;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.SignatureHelp;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TextDocument;
@@ -103,7 +106,6 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(CompletionItemKind))]
 [JsonSerializable(typeof(FoldingRangeKind))]
 [JsonSerializable(typeof(InsertTextMode))]
-[JsonSerializable(typeof(MessageType))]
 [JsonSerializable(typeof(PositionEncodingKind))]
 [JsonSerializable(typeof(ResourceOperationKind))]
 [JsonSerializable(typeof(PrepareSupportDefaultBehavior))]
@@ -202,5 +204,11 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(FoldingRange))]
 [JsonSerializable(typeof(List<FoldingRange>))]
 [JsonSerializable(typeof(FoldingRangeKind))]
+[JsonSerializable(typeof(ExecuteCommandParams))]
+[JsonSerializable(typeof(ExecuteCommandResponse))]
+[JsonSerializable(typeof(ApplyWorkspaceEditParams))]
+[JsonSerializable(typeof(ApplyWorkspaceEditResult))]
+[JsonSerializable(typeof(ShowMessageParams))]
+[JsonSerializable(typeof(MessageType))]
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class JsonProtocolContext: JsonSerializerContext;

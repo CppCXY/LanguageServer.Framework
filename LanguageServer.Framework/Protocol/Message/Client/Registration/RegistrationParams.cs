@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace EmmyLua.LanguageServer.Framework.Protocol.Message.Registration;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Message.Client.Registration;
 
 public class RegistrationParams
 {

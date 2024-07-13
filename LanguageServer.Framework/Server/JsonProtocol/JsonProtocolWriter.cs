@@ -26,4 +26,13 @@ public class JsonProtocolWriter(Stream output, JsonSerializerOptions jsonSeriali
         var writeContentBytes = Encoding.UTF8.GetBytes(writeContent);
         output.Write(writeContentBytes);
     }
+
+    public void WriteRequest(RequestMessage message)
+    {
+        var json = JsonSerializer.Serialize(message, jsonSerializerOptions);
+        var contentLength = Encoding.UTF8.GetByteCount(json);
+        var writeContent = $"Content-Length:{contentLength}\r\n\r\n{json}";
+        var writeContentBytes = Encoding.UTF8.GetBytes(writeContent);
+        output.Write(writeContentBytes);
+    }
 }

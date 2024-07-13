@@ -4,12 +4,12 @@ using EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.JsonRpc;
 
+[JsonConverter(typeof(MessageConverter))]
 public record Message(string JsonRpc)
 {
     [JsonPropertyName("jsonrpc")] public string JsonRpc { get; } = JsonRpc;
 }
 
-[JsonConverter(typeof(MethodMessageConverter))]
 public record MethodMessage(
     string Method
 ) : Message("2.0")
@@ -23,8 +23,7 @@ public record RequestMessage(
     JsonDocument? Params
 ) : MethodMessage(Method)
 {
-    [JsonPropertyName("id")]
-    public StringOrInt Id { get; } = Id;
+    [JsonPropertyName("id")] public StringOrInt Id { get; } = Id;
 
     [JsonPropertyName("params")] public JsonDocument? Params { get; } = Params;
 }
@@ -68,8 +67,7 @@ public record ResponseMessage(
     ResponseError? Error
 ) : Message("2.0")
 {
-    [JsonPropertyName("id")]
-    public StringOrInt Id { get; } = Id;
+    [JsonPropertyName("id")] public StringOrInt Id { get; } = Id;
 
     [JsonPropertyName("result")] public JsonDocument? Result { get; } = Result;
 

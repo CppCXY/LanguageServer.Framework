@@ -1,11 +1,8 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ShowMessage;
 
-/**
- * The kind of a message.
- */
 [JsonConverter(typeof(MessageTypeJsonConverter))]
 public readonly record struct MessageType(int Value)
 {
@@ -35,8 +32,6 @@ public readonly record struct MessageType(int Value)
      * @since 3.18.0
      */
     public static readonly MessageType Debug = new(5);
-
-    public int Value { get; } = Value;
 }
 
 public class MessageTypeJsonConverter : JsonConverter<MessageType>

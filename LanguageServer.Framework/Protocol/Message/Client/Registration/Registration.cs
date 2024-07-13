@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace EmmyLua.LanguageServer.Framework.Protocol.Message.Registration;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Message.Client.Registration;
 
 /**
  * General parameters to register for a capability.

@@ -11,7 +11,7 @@ public class JsonProtocolReader(Stream inputStream, JsonSerializerOptions jsonSe
 
     private byte[] SmallBuffer { get; } = new byte[1024];
 
-    public async Task<MethodMessage> ReadAsync()
+    public async Task<Message> ReadAsync()
     {
         // Read the header part
         var (totalLength, contentStart) = await ReadOneHeaderAsync();
@@ -109,7 +109,7 @@ public class JsonProtocolReader(Stream inputStream, JsonSerializerOptions jsonSe
     }
 
     // Fix me
-    private async Task<MethodMessage> ReadSmallJsonRpcMessageAsync(int totalContentLength, int contentStart,
+    private async Task<Message> ReadSmallJsonRpcMessageAsync(int totalContentLength, int contentStart,
         int readContentLength)
     {
         try
@@ -121,7 +121,7 @@ public class JsonProtocolReader(Stream inputStream, JsonSerializerOptions jsonSe
                 readContentLength += read;
             }
 
-            return JsonSerializer.Deserialize<MethodMessage>(SmallBuffer.AsSpan(contentStart, totalContentLength),
+            return JsonSerializer.Deserialize<Message>(SmallBuffer.AsSpan(contentStart, totalContentLength),
                 jsonSerializerOptions)!;
         }
         catch (JsonException ex)
@@ -130,7 +130,7 @@ public class JsonProtocolReader(Stream inputStream, JsonSerializerOptions jsonSe
         }
     }
 
-    private async Task<MethodMessage> ReadLargeJsonRpcMessageAsync(int totalContentLength, int contentStart,
+    private async Task<Message> ReadLargeJsonRpcMessageAsync(int totalContentLength, int contentStart,
         int readContentLength)
     {
         var buffer = ArrayPool<byte>.Shared.Rent(totalContentLength);
@@ -147,7 +147,7 @@ public class JsonProtocolReader(Stream inputStream, JsonSerializerOptions jsonSe
                 bytesRead += read;
             }
 
-            return JsonSerializer.Deserialize<MethodMessage>(buffer.AsSpan(0, totalContentLength),
+            return JsonSerializer.Deserialize<Message>(buffer.AsSpan(0, totalContentLength),
                 jsonSerializerOptions)!;
         }
         catch (JsonException ex)
