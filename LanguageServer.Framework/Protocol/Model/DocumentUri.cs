@@ -25,4 +25,15 @@ public class DocumentUriConverter : JsonConverter<DocumentUri>
     {
         writer.WriteStringValue(value.Uri.ToString());
     }
+
+    public override void WriteAsPropertyName(Utf8JsonWriter writer, DocumentUri value, JsonSerializerOptions options)
+    {
+        writer.WritePropertyName(value.Uri.ToString());
+    }
+
+    public override DocumentUri ReadAsPropertyName(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        var uri = reader.GetString() ?? string.Empty;
+        return new DocumentUri(new Uri(uri));
+    }
 }

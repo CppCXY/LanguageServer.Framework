@@ -7,12 +7,12 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Model.TextEdit;
  *
  * @since 3.16.0.
  */
-public record AnnotatedTextEdit(string AnnotationId, Range Range, string NewText) : TextEdit(Range, NewText)
+public class AnnotatedTextEdit : TextEdit
 {
     /**
      * A unique identifier for the annotated text edit. This is used to
      * address the annotated text edit in a workspace edit.
      */
     [JsonPropertyName("annotationId")]
-    public string AnnotationId { get; } = AnnotationId;
+    public string AnnotationId { get; set; } = string.Empty;
 }

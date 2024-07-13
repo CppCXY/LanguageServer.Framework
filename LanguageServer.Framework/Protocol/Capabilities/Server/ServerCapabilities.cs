@@ -156,6 +156,23 @@ public class ServerCapabilities
     public DocumentOnTypeFormattingOptions? DocumentOnTypeFormattingProvider { get; set; }
 
     /**
+     * The server provides rename support. RenameOptions may only be
+     * specified if the client states that it supports
+     * `prepareSupport` in its initial `initialize` request.
+     */
+    [JsonPropertyName("renameProvider")]
+    public BooleanOr<RenameOptions>? RenameProvider { get; set; }
+
+
+    /**
+     * The server provides folding provider support.
+     *
+     * @since 3.10.0
+     */
+    [JsonPropertyName("foldingRangeProvider")]
+    public BooleanOr<FoldingRangeOptions>? FoldingRangeProvider { get; set; }
+
+    /**
      * The server provides execute command support.
      */
     [JsonPropertyName("executeCommandProvider")]

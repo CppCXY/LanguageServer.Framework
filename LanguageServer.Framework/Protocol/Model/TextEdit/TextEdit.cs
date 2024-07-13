@@ -2,19 +2,19 @@
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Model.TextEdit;
 
-public record TextEdit(Range Range, string NewText)
+public class TextEdit
 {
     /**
      * The range of the text document to be manipulated. To insert
      * text into a document create a range where start === end.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; } = Range;
-     
+    public Range Range { get; set; }
+
     /**
      * The string to be inserted. For delete operations use an
      * empty string.
      */
     [JsonPropertyName("newText")]
-    public string NewText { get; } = NewText;
+    public string NewText { get; set; } = string.Empty;
 }

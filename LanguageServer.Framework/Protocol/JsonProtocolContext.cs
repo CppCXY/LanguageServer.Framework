@@ -21,6 +21,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.Initialize;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.NotebookDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Reference;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Registration;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.Rename;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.SignatureHelp;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TextDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TypeDefinition;
@@ -191,5 +192,8 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(DocumentRangeFormattingParams))]
 [JsonSerializable(typeof(DocumentRangesFormattingParams))]
 [JsonSerializable(typeof(DocumentOnTypeFormattingParams))]
+[JsonSerializable(typeof(RenameParams))]
+[JsonSerializable(typeof(PrepareRenameParams))]
+[JsonSerializable(typeof(PrepareRenameResponse))]
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class JsonProtocolContext: JsonSerializerContext;
