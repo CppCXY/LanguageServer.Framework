@@ -7,4 +7,8 @@
         <RootNamespace>EmmyLua.LanguageServer.Framework</RootNamespace>
         <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Protocol\Message\Configuration\" />
+    </ItemGroup>
 </Project>

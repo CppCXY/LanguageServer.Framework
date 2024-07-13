@@ -6,6 +6,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.JsonRpc;
 using EmmyLua.LanguageServer.Framework.Protocol.Message;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.CallHierarchy;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ApplyWorkspaceEdit;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.PublishDiagnostics;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.Registration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ShowMessage;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.CodeAction;
@@ -14,6 +15,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.Completion;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Declaration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Definition;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentColor;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentDiagnostic;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentFormatting;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentHighlight;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentLink;
@@ -24,6 +26,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.Hover;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Implementation;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Initialize;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.InlayHint;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.InlineCompletion;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.InlineValue;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.LinkedEditingRange;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.NotebookDocument;
@@ -35,6 +38,8 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.SignatureHelp;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TextDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TypeDefinition;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TypeHierarchy;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceDiagnostic;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceSymbol;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Diagnostic;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.File;
@@ -249,5 +254,34 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(List<InlayHint>))]
 [JsonSerializable(typeof(InlayHintLabelPart))]
 [JsonSerializable(typeof(List<InlayHintLabelPart>))]
+[JsonSerializable(typeof(PublishDiagnosticsParams))]
+[JsonSerializable(typeof(DocumentDiagnosticParams))]
+[JsonSerializable(typeof(DocumentDiagnosticReport))]
+[JsonSerializable(typeof(FullOrUnchangeDocumentDiagnosticReport))]
+[JsonSerializable(typeof(FullDocumentDiagnosticReport))]
+[JsonSerializable(typeof(UnchangedDocumentDiagnosticReport))]
+[JsonSerializable(typeof(RelatedFullDocumentDiagnosticReport))]
+[JsonSerializable(typeof(RelatedUnchangedDocumentDiagnosticReport))]
+[JsonSerializable(typeof(List<Diagnostic>))]
+[JsonSerializable(typeof(DocumentDiagnosticReportPartialResult))]
+[JsonSerializable(typeof(PreviousResultId))]
+[JsonSerializable(typeof(WorkspaceDocumentDiagnosticReport))]
+[JsonSerializable(typeof(WorkspaceDiagnosticReport))]
+[JsonSerializable(typeof(WorkspaceDiagnosticReportPartialResult))]
+[JsonSerializable(typeof(List<WorkspaceDocumentDiagnosticReport>))]
+[JsonSerializable(typeof(WorkspaceDiagnosticParams))]
+[JsonSerializable(typeof(WorkspaceFullDocumentDiagnosticReport))]
+[JsonSerializable(typeof(WorkspaceUnchangedDocumentDiagnosticReport))]
+[JsonSerializable(typeof(WorkspaceSymbol))]
+[JsonSerializable(typeof(WorkspaceSymbolParams))]
+[JsonSerializable(typeof(WorkspaceSymbolResponse))]
+[JsonSerializable(typeof(List<WorkspaceSymbol>))]
+[JsonSerializable(typeof(InlineCompletionItem))]
+[JsonSerializable(typeof(InlineCompletionList))]
+[JsonSerializable(typeof(InlineCompletionParams))]
+[JsonSerializable(typeof(InlineCompletionResponse))]
+[JsonSerializable(typeof(InlineCompletionTriggerKind))]
+[JsonSerializable(typeof(SelectedCompletionInfo))]
+[JsonSerializable(typeof(List<InlineCompletionItem>))]
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class JsonProtocolContext: JsonSerializerContext;

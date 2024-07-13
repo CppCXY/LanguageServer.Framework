@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using EmmyLua.LanguageServer.Framework.Protocol.JsonRpc;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ApplyWorkspaceEdit;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.PublishDiagnostics;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.Registration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ShowMessage;
 
@@ -36,6 +37,13 @@ public class ClientProxy(LanguageServer server)
         return server.SendNotification(notification);
     }
 
+    public Task PushDiagnostics(PublishDiagnosticsParams @params)
+    {
+        var document = JsonSerializer.SerializeToDocument(@params, server.JsonSerializerOptions);
+        var notification = new NotificationMessage("textDocument/publishDiagnostics", document);
+        return server.SendNotification(notification);
+    }
+
     public async Task RefreshWorkspaceTokens()
     {
         await server.SendRequest("workspace/semanticTokens/refresh", null, CancellationToken.None);
@@ -49,6 +57,11 @@ public class ClientProxy(LanguageServer server)
     public async Task RefreshInlayHint()
     {
         await server.SendRequest("workspace/inlayHint/refresh", null, CancellationToken.None);
+    }
+
+    public async Task RefreshDiagnostics()
+    {
+        await server.SendRequest("workspace/diagnostic/refresh", null, CancellationToken.None);
     }
 
     public async Task<JsonDocument?> SendRequest(string method, JsonDocument document, CancellationToken token)
