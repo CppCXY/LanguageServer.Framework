@@ -1,7 +1,6 @@
 ﻿using System.Text.Json.Serialization;
-using EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
 
-namespace EmmyLua.LanguageServer.Framework.Protocol.Model;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
 
 /**
  * A filter to describe in which file operation requests or notifications

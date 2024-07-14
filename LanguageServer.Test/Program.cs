@@ -55,5 +55,5 @@ ls.AddHandler(new RenameHandler());
 ls.AddHandler(new FoldingRangeHandler());
 ls.AddHandler(new ExecuteCommandHandler(ls));
 ls.AddHandler(new SelectionRangeHandler());
-
+ls.AddHandler(new DidChangeWatchFilesHandler());
 await ls.Run();

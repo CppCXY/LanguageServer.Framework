@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol;
+using EmmyLua.LanguageServer.Framework.Protocol.Capabilities.Client.ClientCapabilities;
 using EmmyLua.LanguageServer.Framework.Protocol.JsonRpc;
 using EmmyLua.LanguageServer.Framework.Protocol.Message;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Initialize;
@@ -47,6 +48,8 @@ public class LanguageServer
     private Dictionary<string, Func<NotificationMessage, CancellationToken, Task>> NotificationHandlers { get; } = new();
 
     public ClientProxy Client { get; }
+
+    public ClientCapabilities ClientCapabilities { get; set; }= null!;
 
     private LanguageServer(Stream input, Stream output)
     {

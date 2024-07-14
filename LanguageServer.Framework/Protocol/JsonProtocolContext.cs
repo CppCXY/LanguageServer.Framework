@@ -39,7 +39,11 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.TextDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TypeDefinition;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.TypeHierarchy;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceDiagnostic;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceFiles;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceFolders;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceSymbol;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile.Watch;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Diagnostic;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.File;
@@ -49,6 +53,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Model.TextDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.TextEdit;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.WorkDoneProgress;
+using FileSystemWatcher = EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile.Watch.FileSystemWatcher;
 using FoldingRangeKind = EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange.FoldingRangeKind;
 using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
@@ -283,5 +288,20 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(InlineCompletionTriggerKind))]
 [JsonSerializable(typeof(SelectedCompletionInfo))]
 [JsonSerializable(typeof(List<InlineCompletionItem>))]
+[JsonSerializable(typeof(DidChangeWorkspaceFoldersParams))]
+[JsonSerializable(typeof(WorkspaceFoldersChangeEvent))]
+[JsonSerializable(typeof(CreateFilesParams))]
+[JsonSerializable(typeof(RenameFilesParams))]
+[JsonSerializable(typeof(DeleteFilesParams))]
+[JsonSerializable(typeof(DidChangeWatchedFilesParams))]
+[JsonSerializable(typeof(DidChangeWatchedFilesRegistrationOptions))]
+[JsonSerializable(typeof(FileEvent))]
+[JsonSerializable(typeof(List<FileEvent>))]
+[JsonSerializable(typeof(FileChangeType))]
+[JsonSerializable(typeof(WatchKind))]
+[JsonSerializable(typeof(FileSystemWatcher))]
+[JsonSerializable(typeof(GlobalPattern))]
+[JsonSerializable(typeof(Pattern))]
+[JsonSerializable(typeof(RelativePattern))]
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class JsonProtocolContext: JsonSerializerContext;

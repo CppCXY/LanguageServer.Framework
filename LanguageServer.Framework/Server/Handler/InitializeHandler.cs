@@ -12,6 +12,7 @@ internal class InitializeHandler(LanguageServer server) : IJsonHandler
     {
         var serverInfo = new ServerInfo();
         var capabilities = new ServerCapabilities();
+        server.ClientCapabilities = request.Capabilities;
         foreach (var handler in server.Handlers)
         {
             handler.RegisterCapability(capabilities, request.Capabilities);
@@ -28,6 +29,11 @@ internal class InitializeHandler(LanguageServer server) : IJsonHandler
 
     private Task Handle(InitializedParams request, CancellationToken cancellationToken)
     {
+        foreach (var handler in server.Handlers)
+        {
+            handler.RegisterDynamicCapability(server, server.ClientCapabilities);
+        }
+
         server.InitializedEventDelegate?.Invoke(request);
         return Task.CompletedTask;
     }
@@ -49,6 +55,9 @@ internal class InitializeHandler(LanguageServer server) : IJsonHandler
 
     public void RegisterCapability(ServerCapabilities serverCapabilities, ClientCapabilities clientCapabilities)
     {
-        return;
+    }
+
+    public virtual void RegisterDynamicCapability(LanguageServer server, ClientCapabilities clientCapabilities)
+    {
     }
 }

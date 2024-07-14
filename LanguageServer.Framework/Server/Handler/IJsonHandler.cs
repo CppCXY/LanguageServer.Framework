@@ -8,4 +8,6 @@ public interface IJsonHandler
     public void RegisterHandler(LanguageServer server);
 
     public void RegisterCapability(ServerCapabilities serverCapabilities, ClientCapabilities clientCapabilities);
+
+    public void RegisterDynamicCapability(LanguageServer server, ClientCapabilities clientCapabilities);
 }
