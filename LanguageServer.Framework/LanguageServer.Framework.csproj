@@ -8,13 +8,13 @@
         <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>EmmyLua.LanguageServer.Framework</PackageId>
-        <Version>0.0.1</Version>
+        <Version>0.0.2</Version>
         <Title>EmmyLua.LanguageServer.Framework</Title>
         <Authors>CppCXY</Authors>
         <Description>language server framework, support lsp3.18 and dotnet aot compilation</Description>
         <Copyright>CppCXY</Copyright>
         <PackageProjectUrl>https://github.com/CppCXY/LanguageServer.Framework</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/CppCXY/LanguageServer.Framework/blob/main/LICENSE</PackageLicenseUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/CppCXY/LanguageServer.Framework</RepositoryUrl>
         <PackageTags>lsp,aot</PackageTags>
     </PropertyGroup>

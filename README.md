@@ -2,8 +2,24 @@
 
 LSP specification: https://microsoft.github.io/language-server-protocol/specifications/lsp/3.18/specification/
 
-LSP version: 3.18
+## Features
 
-Support AOT
+- Full LSP 3.18 support
+- Use Text.Json source genration, no dependency on Newtonsoft.Json
+- Ahead-of-time (AOT) compilation support
 
-Under Development ...
+## Installation
+
+> dotnet add package EmmyLua.LanguageServer.Framework 
+
+## Example
+
+see: `LanguageServer.Test` Project
+
+## Custom Request
+
+> TODO
+
+## License
+
+[MIT](LICENSE)
