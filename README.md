@@ -20,6 +20,10 @@ see: `LanguageServer.Test` Project
 
 > TODO
 
+## Who Use this Library
+
+[EmmyLuaAnalyzer](https://github.com/CppCXY/EmmyLuaAnalyzer)
+
 ## License
 
 [MIT](LICENSE)
