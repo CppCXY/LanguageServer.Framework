@@ -3,13 +3,13 @@
 namespace EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 [method: JsonConstructor]
-public readonly record struct Position(uint Line, uint Character)
+public readonly record struct Position(int Line, int Character)
 {
     /**
      * Line position in a document (zero-based).
      */
     [JsonPropertyName("line")]
-    public uint Line { get; init; } = Line;
+    public int Line { get; init; } = Line;
 
     /**
      * Character offset on a line in a document (zero-based). The meaning of this
@@ -19,5 +19,9 @@ public readonly record struct Position(uint Line, uint Character)
      * to the line length.
      */
     [JsonPropertyName("character")]
-    public uint Character { get; init; } = Character;
+    public int Character { get; init; } = Character;
+
+    public Position() : this(0, 0)
+    {
+    }
 }

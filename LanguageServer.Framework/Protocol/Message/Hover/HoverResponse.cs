@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Markup;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.Hover;
 
@@ -23,5 +23,5 @@ public class HoverResponse
      * that is used to visualize a hover, e.g. by changing the background color.
      */
     [JsonPropertyName("range")]
-    public Range? Range { get; set; }
+    public DocumentRange? Range { get; set; }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.InlineCompletion;
 
@@ -39,7 +38,7 @@ public record InlineCompletionItem
      * the user deletes typed text.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * An optional {@link Command} that is executed *after* inserting this

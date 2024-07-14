@@ -5,7 +5,7 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentColor;
 /**
  * Represents a color in RGBA space.
  */
-public class Color(double red, double green, double blue, double alpha = 0)
+public class DocumentColor(double red, double green, double blue, double alpha = 0)
 {
     /**
      * The red component of this color in the range [0-1].
@@ -30,4 +30,8 @@ public class Color(double red, double green, double blue, double alpha = 0)
      */
     [JsonPropertyName("alpha")]
     public double Alpha { get; set; } = alpha;
+
+    public DocumentColor() : this(0, 0, 0, 0)
+    {
+    }
 }

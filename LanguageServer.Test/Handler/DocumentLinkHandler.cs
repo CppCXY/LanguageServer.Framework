@@ -4,7 +4,6 @@ using EmmyLua.LanguageServer.Framework.Protocol.Capabilities.Server.Options;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentLink;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Server.Handler;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Handler;
 
@@ -16,7 +15,7 @@ public class DocumentLinkHandler : DocumentLinkHandlerBase
          return  Task.FromResult(new DocumentLinkResponse([
              new DocumentLink()
              {
-                 Range = new Range()
+                 Range = new DocumentRange()
                  {
                      Start = new Position()
                      {

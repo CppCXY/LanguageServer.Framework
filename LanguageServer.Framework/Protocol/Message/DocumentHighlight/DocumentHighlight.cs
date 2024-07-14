@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentHighlight;
 
@@ -15,7 +15,7 @@ public class DocumentHighlight
      * The range this highlight applies to.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * The highlight kind, default is DocumentHighlightKind.Text.

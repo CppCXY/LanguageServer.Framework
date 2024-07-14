@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Interface;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.TextDocument;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentFormatting;
 
@@ -20,7 +20,7 @@ public class DocumentRangeFormattingParams : IWorkDoneProgressParams
      * The range to format
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * The format options
@@ -44,7 +44,7 @@ public class DocumentRangesFormattingParams : IWorkDoneProgressParams
      * The ranges to format
      */
     [JsonPropertyName("ranges")]
-    public List<Range> Ranges { get; set; } = null!;
+    public List<DocumentRange> Ranges { get; set; } = null!;
 
     /**
      * The format options

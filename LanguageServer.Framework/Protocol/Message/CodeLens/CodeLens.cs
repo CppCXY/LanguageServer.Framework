@@ -1,6 +1,5 @@
 ﻿using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.CodeLens;
@@ -20,7 +19,7 @@ public record CodeLens
      * line.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * The command this code lens represents.

@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Interface;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.TextDocument;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.InlayHint;
 
@@ -25,5 +25,5 @@ public class InlayHintParams : IWorkDoneProgressParams
      * The range in which inlay hints should be shown.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 }

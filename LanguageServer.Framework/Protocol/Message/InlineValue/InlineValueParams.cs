@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Interface;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.TextDocument;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.InlineValue;
 
@@ -25,7 +25,7 @@ public class InlineValueParams : IWorkDoneProgressParams
      * The document range for which inline values should be computed.
      */
     [JsonPropertyName("position")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * Additional information about the context in which inline values were

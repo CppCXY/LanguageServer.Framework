@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentSymbol;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.CallHierarchy;
 
@@ -43,14 +42,14 @@ public record CallHierarchyItem
      * The range enclosing this symbol not including leading/trailing whitespace but everything else, e.g. comments and code.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * The range that should be selected and revealed when this symbol is being picked, e.g. the name of a function.
      * Must be contained by the `range`.
      */
     [JsonPropertyName("selectionRange")]
-    public Range SelectionRange { get; set; }
+    public DocumentRange SelectionRange { get; set; }
 
     /**
      * A data entry field that is preserved between a call hierarchy prepare and a call hierarchy incoming calls or outgoing calls request.

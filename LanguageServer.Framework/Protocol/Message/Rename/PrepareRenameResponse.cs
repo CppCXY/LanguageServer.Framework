@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.Rename;
 
@@ -9,19 +9,19 @@ public class PrepareRenameResponse
 {
     public int Index { get; set; }
 
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     public string? Placeholder { get; set; }
 
     public bool? DefaultBehavior { get; set; }
 
-    public PrepareRenameResponse(Range range)
+    public PrepareRenameResponse(DocumentRange range)
     {
         Index = 0;
         Range = range;
     }
 
-    public PrepareRenameResponse(Range range, string placeholder)
+    public PrepareRenameResponse(DocumentRange range, string placeholder)
     {
         Index = 1;
         Range = range;

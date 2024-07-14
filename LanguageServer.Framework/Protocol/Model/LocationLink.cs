@@ -3,10 +3,10 @@
 namespace EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 public record LocationLink(
-    Range? OriginSelectionRange,
+    DocumentRange? OriginSelectionRange,
     DocumentUri TargetUri,
-    Range TargetRange,
-    Range TargetSelectionRange)
+    DocumentRange TargetRange,
+    DocumentRange TargetSelectionRange)
 {
     /**
      * Span of the origin of this link.
@@ -15,7 +15,7 @@ public record LocationLink(
      * range at the mouse position.
      */
     [JsonPropertyName("originSelectionRange")]
-    public Range? OriginSelectionRange { get; } = OriginSelectionRange;
+    public DocumentRange? OriginSelectionRange { get; } = OriginSelectionRange;
 
     /**
      * The target resource identifier of this link.
@@ -29,12 +29,12 @@ public record LocationLink(
      * like comments. This information is typically used to highlight the range in the editor.
      */
     [JsonPropertyName("targetRange")]
-    public Range TargetRange { get; } = TargetRange;
+    public DocumentRange TargetRange { get; } = TargetRange;
 
     /**
      * The range that should be selected and revealed when this link is being followed, e.g the name of a function.
      * Must be contained by the the `targetRange`. See also `DocumentSymbol#range`
      */
     [JsonPropertyName("targetSelectionRange")]
-    public Range TargetSelectionRange { get; } = TargetSelectionRange;
+    public DocumentRange TargetSelectionRange { get; } = TargetSelectionRange;
 }

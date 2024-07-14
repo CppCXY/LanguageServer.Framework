@@ -1,7 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentSymbol;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.TypeHierarchy;
 
@@ -41,7 +40,7 @@ public class TypeHierarchyItem
      * The range enclosing this symbol not including leading/trailing whitespace but everything else, e.g. comments and code.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * The range that should be selected and revealed when this symbol is being
@@ -49,7 +48,7 @@ public class TypeHierarchyItem
      * [`range`](#TypeHierarchyItem.range).
      */
     [JsonPropertyName("selectionRange")]
-    public Range SelectionRange { get; set; }
+    public DocumentRange SelectionRange { get; set; }
 
     /**
      * A data entry field that is preserved between a type hierarchy prepare and

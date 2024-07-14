@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentSymbol;
 
@@ -48,14 +48,14 @@ public record DocumentSymbol
      * symbol in the UI.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * The range that should be selected and revealed when this symbol is being
      * picked, e.g. the name of a function. Must be contained by the `range`.
      */
     [JsonPropertyName("selectionRange")]
-    public Range SelectionRange { get; set; }
+    public DocumentRange SelectionRange { get; set; }
 
     /**
      * Children of this symbol, e.g. properties of a class.

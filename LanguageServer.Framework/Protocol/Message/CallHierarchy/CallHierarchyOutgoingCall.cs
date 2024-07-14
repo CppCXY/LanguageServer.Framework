@@ -1,6 +1,5 @@
 ﻿using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.CallHierarchy;
 
@@ -18,5 +17,5 @@ public class CallHierarchyOutgoingCall
      * [`this.to`](#CallHierarchyOutgoingCall.to).
      */
     [JsonPropertyName("fromRanges")]
-    public Range FromRanges { get; set; }
+    public DocumentRange FromRanges { get; set; }
 }

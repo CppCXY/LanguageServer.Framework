@@ -9,6 +9,7 @@ public record TextDocumentEdit
     /**
      * The text document to change.
      */
+    [JsonPropertyName("textDocument")]
     public OptionalVersionedTextDocumentIdentifier TextDocument { get; init; } = null!;
 
     /**

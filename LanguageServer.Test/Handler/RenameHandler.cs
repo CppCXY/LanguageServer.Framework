@@ -5,7 +5,6 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.Rename;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.TextEdit;
 using EmmyLua.LanguageServer.Framework.Server.Handler;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Handler;
 
@@ -20,7 +19,7 @@ public class RenameHandler : RenameHandlerBase
         [
             new TextEdit()
             {
-                Range = new Range(request.Position,
+                Range = new DocumentRange(request.Position,
                     request.Position with { Character = request.Position.Character + 1 }),
                 NewText = newName
             }
@@ -31,7 +30,7 @@ public class RenameHandler : RenameHandlerBase
     protected override Task<PrepareRenameResponse> Handle(PrepareRenameParams request, CancellationToken token)
     {
         Console.Error.WriteLine("RenameHandler.PrepareRename");
-        return Task.FromResult(new PrepareRenameResponse(new Range(request.Position,
+        return Task.FromResult(new PrepareRenameResponse(new DocumentRange(request.Position,
             request.Position with { Character = request.Position.Character + 1 })));
     }
 

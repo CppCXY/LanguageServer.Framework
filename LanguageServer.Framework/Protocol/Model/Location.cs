@@ -3,7 +3,7 @@
 namespace EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 [method: JsonConstructor]
-public record struct Location(DocumentUri Uri, Range Range)
+public readonly record struct Location(DocumentUri Uri, DocumentRange Range)
 {
     /**
      * The URI of the document.
@@ -15,5 +15,9 @@ public record struct Location(DocumentUri Uri, Range Range)
      * The range in side the document.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; init; } = Range;
+    public DocumentRange Range { get; init; } = Range;
+
+    public Location() : this(default, default)
+    {
+    }
 }

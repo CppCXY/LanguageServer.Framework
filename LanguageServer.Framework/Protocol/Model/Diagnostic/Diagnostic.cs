@@ -9,7 +9,7 @@ public class Diagnostic
      * The range at which the message applies.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * The diagnostic's severity.

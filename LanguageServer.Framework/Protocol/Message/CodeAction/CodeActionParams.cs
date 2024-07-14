@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Interface;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.TextDocument;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.CodeAction;
 
@@ -23,7 +23,7 @@ public class CodeActionParams : IWorkDoneProgressParams, IPartialResultParams
      * The document in which the command was invoked.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * Context carrying additional information.

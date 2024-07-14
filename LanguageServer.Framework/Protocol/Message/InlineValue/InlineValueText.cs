@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.InlineValue;
 
@@ -14,7 +14,7 @@ public class InlineValueText
      * The document range for which the inline value applies.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * The text of the inline value.

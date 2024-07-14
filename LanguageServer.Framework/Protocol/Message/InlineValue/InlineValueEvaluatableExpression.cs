@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.InlineValue;
 
@@ -21,7 +21,7 @@ public class InlineValueEvaluatableExpression
      * underlying document.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * If specified the expression overrides the extracted expression.

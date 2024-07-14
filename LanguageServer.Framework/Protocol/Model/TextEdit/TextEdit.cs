@@ -9,7 +9,7 @@ public class TextEdit
      * text into a document create a range where start === end.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * The string to be inserted. For delete operations use an

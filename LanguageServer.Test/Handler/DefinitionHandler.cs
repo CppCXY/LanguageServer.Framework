@@ -3,7 +3,6 @@ using EmmyLua.LanguageServer.Framework.Protocol.Capabilities.Server;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Definition;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Server.Handler;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Handler;
 
@@ -13,7 +12,7 @@ public class DefinitionHandler : DefinitionHandlerBase
     {
         Console.Error.WriteLine("DefinitionHandler.Handle");
         return Task.FromResult(new DefinitionResponse(new Location(request.TextDocument.Uri,
-            new Range() { Start = new Position(0, 0), End = new Position(0, 1) }
+            new DocumentRange() { Start = new Position(0, 0), End = new Position(0, 1) }
         )))!;
     }
 

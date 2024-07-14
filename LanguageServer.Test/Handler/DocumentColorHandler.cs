@@ -4,7 +4,6 @@ using EmmyLua.LanguageServer.Framework.Protocol.Capabilities.Server.Options;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentColor;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Server.Handler;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Handler;
 
@@ -18,7 +17,7 @@ public class DocumentColorHandler : DocumentColorHandlerBase
         {
             new ColorInformation
             {
-                Range = new Range
+                Range = new DocumentRange
                 {
                     Start = new Position
                     {
@@ -31,7 +30,7 @@ public class DocumentColorHandler : DocumentColorHandlerBase
                         Character = 1
                     }
                 },
-                Color = new Color(0, 0, 0, 0)
+                Color = new DocumentColor(0, 0, 0, 0)
             }
         };
         return Task.FromResult(new DocumentColorResponse(colorInformationList));

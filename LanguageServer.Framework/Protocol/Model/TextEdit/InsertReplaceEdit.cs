@@ -19,11 +19,11 @@ public class InsertReplaceEdit
      * The range if the insert is requested
      */
     [JsonPropertyName("insert")]
-    public Range Insert { get; set; }
+    public DocumentRange Insert { get; set; }
 
     /**
      * The range if the replace is requested.
      */
     [JsonPropertyName("replace")]
-    public Range Replace { get; set; }
+    public DocumentRange Replace { get; set; }
 }

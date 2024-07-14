@@ -8,20 +8,20 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Model.TextEdit;
  * @since 3.18.0
  */
 [method: JsonConstructor]
-public record struct SnippetTextEdit(Range Range, StringValue Snippet, string? AnnotationId = null)
+public record struct SnippetTextEdit(DocumentRange Range, StringValue Snippet, string? AnnotationId = null)
 {
     /**
      * The range of the text document to be manipulated.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; } = Range;
-    
+    public DocumentRange Range { get; } = Range;
+
     /**
      * The snippet to be inserted.
      */
     [JsonPropertyName("snippet")]
     public StringValue Snippet { get; } = Snippet;
-    
+
     /**
      * An optional identifier of the actual annotation.
      */

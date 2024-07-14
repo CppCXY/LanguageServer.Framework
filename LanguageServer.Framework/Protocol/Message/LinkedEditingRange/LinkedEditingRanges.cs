@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.LinkedEditingRange;
 
@@ -12,7 +12,7 @@ public class LinkedEditingRanges
      * overlap.
     */
     [JsonPropertyName("ranges")]
-    public List<Range> Ranges { get; set; } = null!;
+    public List<DocumentRange> Ranges { get; set; } = null!;
 
     /**
      * An optional word pattern for the language.

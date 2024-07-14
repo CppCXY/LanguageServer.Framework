@@ -56,7 +56,6 @@ using EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.WorkDoneProgress;
 using FileSystemWatcher = EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile.Watch.FileSystemWatcher;
 using FoldingRangeKind = EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange.FoldingRangeKind;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 
 namespace EmmyLua.LanguageServer.Framework.Protocol;
@@ -81,8 +80,8 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(ClientInfo))]
 [JsonSerializable(typeof(DocumentUri))]
 [JsonSerializable(typeof(DocumentFilter))]
-[JsonSerializable(typeof(Range))]
-[JsonSerializable(typeof(List<Range>))]
+[JsonSerializable(typeof(DocumentRange))]
+[JsonSerializable(typeof(List<DocumentRange>))]
 [JsonSerializable(typeof(Position))]
 [JsonSerializable(typeof(List<Position>))]
 [JsonSerializable(typeof(Location))]

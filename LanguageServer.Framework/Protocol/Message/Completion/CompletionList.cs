@@ -3,7 +3,6 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.Completion;
 
@@ -90,11 +89,11 @@ public class CompletionListItemDefault
 [JsonConverter(typeof(CompletionListItemDefaultEditRangeJsonConverter))]
 public class CompletionListItemDefaultEditRange
 {
-    public Range? Result1 { get; set; }
+    public DocumentRange? Result1 { get; set; }
 
     public InsertAndReplaceRange? Result2 { get; set; }
 
-    public CompletionListItemDefaultEditRange(Range range)
+    public CompletionListItemDefaultEditRange(DocumentRange range)
     {
         Result1 = range;
     }
@@ -134,8 +133,8 @@ public class CompletionListItemDefaultEditRangeJsonConverter : JsonConverter<Com
 public class InsertAndReplaceRange
 {
     [JsonPropertyName("insert")]
-    public Range Insert { get; set; }
+    public DocumentRange Insert { get; set; }
 
     [JsonPropertyName("replace")]
-    public Range Replace { get; set; }
+    public DocumentRange Replace { get; set; }
 }

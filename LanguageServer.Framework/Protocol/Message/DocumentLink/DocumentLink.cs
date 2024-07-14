@@ -1,6 +1,5 @@
 ﻿using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
-using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentLink;
 
@@ -14,7 +13,7 @@ public class DocumentLink
      * The range this link applies to.
      */
     [JsonPropertyName("range")]
-    public Range Range { get; set; }
+    public DocumentRange Range { get; set; }
 
     /**
      * The uri this link points to. If missing a resolve request is sent later.
