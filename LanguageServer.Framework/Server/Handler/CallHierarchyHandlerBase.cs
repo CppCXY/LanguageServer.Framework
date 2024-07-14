@@ -7,7 +7,7 @@ namespace EmmyLua.LanguageServer.Framework.Server.Handler;
 
 public abstract class CallHierarchyHandlerBase : IJsonHandler
 {
-    protected abstract Task<CallHierarchyPrepareResponse> CallHierarchyPrepare(CallHierarchyPrepareParams request,
+    protected abstract Task<CallHierarchyPrepareResponse?> CallHierarchyPrepare(CallHierarchyPrepareParams request,
         CancellationToken token);
 
     protected abstract Task<CallHierarchyIncomingCallsResponse> CallHierarchyIncomingCalls(

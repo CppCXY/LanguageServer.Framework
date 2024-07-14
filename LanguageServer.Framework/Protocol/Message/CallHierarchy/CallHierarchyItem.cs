@@ -7,7 +7,7 @@ using Range = EmmyLua.LanguageServer.Framework.Protocol.Model.Range;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.CallHierarchy;
 
-public class CallHierarchyItem
+public record CallHierarchyItem
 {
     /**
      * The name of this item.

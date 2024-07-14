@@ -7,7 +7,7 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Message.Completion;
  *
  * @since 3.17.0
  */
-public class CompletionItemLabelDetails
+public record CompletionItemLabelDetails
 {
     /**
      * An optional string which is rendered less prominently directly after

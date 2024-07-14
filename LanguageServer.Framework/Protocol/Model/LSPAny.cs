@@ -5,34 +5,13 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 // ReSharper disable once InconsistentNaming
 [JsonConverter(typeof(LSPAnyJsonConverter))]
-public class LSPAny
+public class LSPAny(object? anyOther)
 {
-    public object Value { get; }
-
-    public LSPAny(JsonDocument jsonDocument)
-    {
-        Value = jsonDocument;
-    }
-
-    public LSPAny(string value)
-    {
-        Value = value;
-    }
-
-    public LSPAny(int value)
-    {
-        Value = value;
-    }
-
-    public LSPAny(bool value)
-    {
-        Value = value;
-    }
+    public object? Value { get; } = anyOther;
 
     public static implicit operator LSPAny(string value) => new LSPAny(value);
     public static implicit operator LSPAny(int value) => new LSPAny(value);
     public static implicit operator LSPAny(bool value) => new LSPAny(value);
-    public static implicit operator LSPAny(JsonDocument value) => new LSPAny(value);
 }
 
 // ReSharper disable once InconsistentNaming
@@ -76,7 +55,8 @@ public class LSPAnyJsonConverter : JsonConverter<LSPAny>
                 jsonDocument.WriteTo(writer);
                 break;
             default:
-                throw new JsonException();
+                JsonSerializer.Serialize(writer, value, options);
+                break;
         }
     }
 }

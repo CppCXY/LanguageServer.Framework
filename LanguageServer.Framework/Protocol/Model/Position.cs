@@ -3,7 +3,7 @@
 namespace EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 [method: JsonConstructor]
-public record struct Position(uint Line, uint Character)
+public readonly record struct Position(uint Line, uint Character)
 {
     /**
      * Line position in a document (zero-based).

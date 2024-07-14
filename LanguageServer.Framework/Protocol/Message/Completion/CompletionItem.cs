@@ -7,7 +7,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.Completion;
 
-public class CompletionItem
+public record CompletionItem
 {
     /**
      * The label of this completion item.

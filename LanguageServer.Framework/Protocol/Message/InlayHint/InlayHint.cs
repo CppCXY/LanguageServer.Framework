@@ -10,7 +10,7 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Message.InlayHint;
  *
  * @since 3.17.0
  */
-public class InlayHint
+public record InlayHint
 {
     /**
      * The position of this hint.

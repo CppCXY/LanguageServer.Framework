@@ -10,7 +10,7 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentSymbol;
  * have two ranges: one that encloses their definition and one that points to
  * their most interesting range, e.g. the range of an identifier.
  */
-public class DocumentSymbol
+public record DocumentSymbol
 {
     /**
      * The name of this symbol. Will be displayed in the user interface and

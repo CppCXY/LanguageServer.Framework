@@ -7,7 +7,7 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange;
  * than zero and smaller than the number of lines in the document. Clients
  * are free to ignore invalid ranges.
  */
-public class FoldingRange
+public record FoldingRange
 {
     /**
      * The zero-based start line of the range to fold. The folded area starts

@@ -12,7 +12,7 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Message.CodeAction;
  * A CodeAction must set either `edit` and/or a `command`. If both are supplied,
  * the `edit` is applied first, then the `command` is executed.
  */
-public class CodeAction
+public record CodeAction
 {
     /**
      * A short, human-readable title for this code action.

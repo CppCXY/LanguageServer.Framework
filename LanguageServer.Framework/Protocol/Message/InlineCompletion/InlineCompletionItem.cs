@@ -11,7 +11,7 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Message.InlineCompletion;
  *
  * @since 3.18.0
  */
-public class InlineCompletionItem
+public record InlineCompletionItem
 {
     /**
      * The text to replace the range with. Must be set.

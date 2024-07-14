@@ -13,7 +13,7 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Message.CodeLens;
  * performance reasons the creation of a code lens and resolving should be done
  * in two stages.
  */
-public class CodeLens
+public record CodeLens
 {
     /**
      * The range in which this code lens is valid. Should only span a single
