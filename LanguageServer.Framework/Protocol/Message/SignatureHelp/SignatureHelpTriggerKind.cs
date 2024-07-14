@@ -4,25 +4,23 @@ using System.Text.Json.Serialization;
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.SignatureHelp;
 
 [JsonConverter(typeof(SignatureHelpTriggerKindJsonConverter))]
-public readonly record struct SignatureHelpTriggerKind(int Value)
+public enum SignatureHelpTriggerKind
 {
     /**
      * Signature help was invoked manually by the user or by a command.
      */
-    public static readonly SignatureHelpTriggerKind Invoked = new(1);
+    Invoked = 1,
 
     /**
      * Signature help was triggered by the cursor moving or by the document content changing.
      */
-    public static readonly SignatureHelpTriggerKind TriggerCharacter = new(2);
+    TriggerCharacter = 2,
 
     /**
      * Signature help was triggered by the cursor moving or by the document
      * content changing.
      */
-    public static readonly SignatureHelpTriggerKind ContentChange = new(3);
-
-    public int Value { get; } = Value;
+    ContentChange = 3
 }
 
 public class SignatureHelpTriggerKindJsonConverter : JsonConverter<SignatureHelpTriggerKind>
@@ -34,11 +32,11 @@ public class SignatureHelpTriggerKindJsonConverter : JsonConverter<SignatureHelp
             throw new JsonException();
         }
 
-        return new SignatureHelpTriggerKind(reader.GetInt32());
+        return (SignatureHelpTriggerKind)reader.GetInt32();
     }
 
     public override void Write(Utf8JsonWriter writer, SignatureHelpTriggerKind value, JsonSerializerOptions options)
     {
-        writer.WriteNumberValue(value.Value);
+        writer.WriteNumberValue((int)value);
     }
 }

@@ -4,29 +4,28 @@ using System.Text.Json.Serialization;
 namespace EmmyLua.LanguageServer.Framework.Protocol.Model.Diagnostic;
 
 [JsonConverter(typeof(DiagnosticSeverityJsonConverter))]
-public readonly record struct DiagnosticSeverity(int Value)
+public enum DiagnosticSeverity
 {
     /**
      * Reports an error.
      */
-    public static DiagnosticSeverity Error { get; } = new DiagnosticSeverity(1);
-    
+    Error = 1,
+
     /**
      * Reports a warning.
      */
-    public static DiagnosticSeverity Warning { get; } = new DiagnosticSeverity(2);
-    
+    Warning = 2,
+
     /**
      * Reports an information.
      */
-    public static DiagnosticSeverity Information { get; } = new DiagnosticSeverity(3);
-    
+    Information = 3,
+
     /**
      * Reports a hint.
      */
-    public static DiagnosticSeverity Hint { get; } = new DiagnosticSeverity(4);
-    
-    public int Value { get; } = Value;
+    Hint = 4
+
 }
 
 public class DiagnosticSeverityJsonConverter : JsonConverter<DiagnosticSeverity>
@@ -38,11 +37,11 @@ public class DiagnosticSeverityJsonConverter : JsonConverter<DiagnosticSeverity>
             throw new JsonException();
         }
 
-        return new DiagnosticSeverity(reader.GetInt32());
+        return (DiagnosticSeverity)reader.GetInt32();
     }
 
     public override void Write(Utf8JsonWriter writer, DiagnosticSeverity value, JsonSerializerOptions options)
     {
-        writer.WriteNumberValue(value.Value);
+        writer.WriteNumberValue((int)value);
     }
 }

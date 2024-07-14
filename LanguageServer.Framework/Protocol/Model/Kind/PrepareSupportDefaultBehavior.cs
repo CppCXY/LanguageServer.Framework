@@ -4,13 +4,13 @@ using System.Text.Json.Serialization;
 namespace EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
 
 [JsonConverter(typeof(PrepareSupportDefaultBehaviorJsonConverter))]
-public readonly record struct PrepareSupportDefaultBehavior(int Value)
+public enum PrepareSupportDefaultBehavior
 {
     /**
      * The client's default behavior is to select the identifier
      * according to the language's syntax rule.
      */
-     public static readonly PrepareSupportDefaultBehavior Identifier = new (1);
+    Identifier = 1
 }
 
 public class PrepareSupportDefaultBehaviorJsonConverter : JsonConverter<PrepareSupportDefaultBehavior>
@@ -22,11 +22,11 @@ public class PrepareSupportDefaultBehaviorJsonConverter : JsonConverter<PrepareS
             throw new JsonException();
         }
 
-        return new PrepareSupportDefaultBehavior(reader.GetInt32());
+        return (PrepareSupportDefaultBehavior)reader.GetInt32();
     }
 
     public override void Write(Utf8JsonWriter writer, PrepareSupportDefaultBehavior value, JsonSerializerOptions options)
     {
-        writer.WriteNumberValue(value.Value);
+        writer.WriteNumberValue((int)value);
     }
 }

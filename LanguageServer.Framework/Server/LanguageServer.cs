@@ -132,14 +132,14 @@ public class LanguageServer
         ShutdownEventDelegate += handler;
     }
 
-    public delegate void StartEvent();
-
-    internal StartEvent? StartEventDelegate;
-
-    public void OnStart(StartEvent handler)
-    {
-        StartEventDelegate += handler;
-    }
+    // public delegate void StartEvent();
+    //
+    // internal StartEvent? StartEventDelegate;
+    //
+    // public void OnStart(StartEvent handler)
+    // {
+    //     StartEventDelegate += handler;
+    // }
 
     private async Task OnDispatch(Message message)
     {

@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
+using EmmyLua.LanguageServer.Framework.Protocol.Model.File;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Capabilities.Server.Options;

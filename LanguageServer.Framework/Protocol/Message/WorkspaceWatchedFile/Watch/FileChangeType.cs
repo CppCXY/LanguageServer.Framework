@@ -4,22 +4,22 @@ using System.Text.Json.Serialization;
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile.Watch;
 
 [JsonConverter(typeof(FileChangeTypeJsonConverter))]
-public readonly record struct FileChangeType(int Value)
+public enum FileChangeType
 {
     /**
      * The file got created.
      */
-    public static FileChangeType Created { get; } = new(1);
+    Created = 1,
 
     /**
      * The file got changed.
      */
-    public static FileChangeType Changed { get; } = new(2);
+    Changed = 2,
 
     /**
      * The file got deleted.
      */
-    public static FileChangeType Deleted { get; } = new(3);
+    Deleted = 3
 }
 
 public class FileChangeTypeJsonConverter : JsonConverter<FileChangeType>
@@ -37,6 +37,6 @@ public class FileChangeTypeJsonConverter : JsonConverter<FileChangeType>
 
     public override void Write(Utf8JsonWriter writer, FileChangeType value, JsonSerializerOptions options)
     {
-        writer.WriteNumberValue(value.Value);
+        writer.WriteNumberValue((int)value);
     }
 }

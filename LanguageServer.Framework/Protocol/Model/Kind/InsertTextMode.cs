@@ -5,7 +5,7 @@ namespace EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
 
 
 [JsonConverter(typeof(InsertTextModeJsonConverter))]
-public readonly record struct InsertTextMode(int Value)
+public enum InsertTextMode
 {
     /**
     * The insertion or replace strings are taken as-is. If the
@@ -14,7 +14,7 @@ public readonly record struct InsertTextMode(int Value)
     * The client will not apply any kind of adjustments to the
     * string.
     */
-    public static readonly InsertTextMode AsIs = new(1);
+    AsIs = 1,
 
     /**
     * The editor adjusts leading whitespace of new lines so that
@@ -25,9 +25,8 @@ public readonly record struct InsertTextMode(int Value)
     * multi line completion item is indented using 2 tabs and all
     * following lines inserted will be indented using 2 tabs as well.
     */
-    public static readonly InsertTextMode AdjustIndentation = new(2);
+    AdjustIndentation = 2
 
-    public int Value { get; } = Value;
 }
 
 public class InsertTextModeJsonConverter : JsonConverter<InsertTextMode>
@@ -39,11 +38,11 @@ public class InsertTextModeJsonConverter : JsonConverter<InsertTextMode>
             throw new JsonException();
         }
 
-        return new InsertTextMode(reader.GetInt32());
+        return (InsertTextMode)reader.GetInt32();
     }
 
     public override void Write(Utf8JsonWriter writer, InsertTextMode value, JsonSerializerOptions options)
     {
-        writer.WriteNumberValue(value.Value);
+        writer.WriteNumberValue((int)value);
     }
 }

@@ -4,12 +4,12 @@ using System.Text.Json.Serialization;
 namespace EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
 
 [JsonConverter(typeof(InsertTextFormatJsonConverter))]
-public readonly record struct InsertTextFormat(int Value)
+public enum InsertTextFormat
 {
     /**
      * The primary text to be inserted is treated as a plain string.
      */
-    public static InsertTextFormat PlainText { get; } = new(1);
+    PlainText = 1,
 
     /**
      * The primary text to be inserted is treated as a snippet.
@@ -19,9 +19,7 @@ public readonly record struct InsertTextFormat(int Value)
      * the end of the snippet. Placeholders with equal identifiers are linked,
      * that is typing in one will update others too.
      */
-    public static InsertTextFormat Snippet { get; } = new(2);
-
-    public int Value { get; } = Value;
+    Snippet = 2
 }
 
 public class InsertTextFormatJsonConverter : JsonConverter<InsertTextFormat>
@@ -33,11 +31,11 @@ public class InsertTextFormatJsonConverter : JsonConverter<InsertTextFormat>
             throw new JsonException();
         }
 
-        return new InsertTextFormat(reader.GetInt32());
+        return (InsertTextFormat)reader.GetInt32();
     }
 
     public override void Write(Utf8JsonWriter writer, InsertTextFormat value, JsonSerializerOptions options)
     {
-        writer.WriteNumberValue(value.Value);
+        writer.WriteNumberValue((int)value);
     }
 }
