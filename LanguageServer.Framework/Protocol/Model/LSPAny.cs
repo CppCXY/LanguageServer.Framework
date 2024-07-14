@@ -55,7 +55,7 @@ public class LSPAnyJsonConverter : JsonConverter<LSPAny>
                 jsonDocument.WriteTo(writer);
                 break;
             default:
-                JsonSerializer.Serialize(writer, value, options);
+                JsonSerializer.Serialize(writer, value.Value, options);
                 break;
         }
     }
