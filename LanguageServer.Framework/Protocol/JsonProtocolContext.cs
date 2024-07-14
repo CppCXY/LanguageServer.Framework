@@ -12,6 +12,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ShowMessage;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.CodeAction;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.CodeLens;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Completion;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.Configuration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Declaration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Definition;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentColor;
@@ -303,5 +304,9 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(GlobalPattern))]
 [JsonSerializable(typeof(Pattern))]
 [JsonSerializable(typeof(RelativePattern))]
+[JsonSerializable(typeof(ConfigurationParams))]
+[JsonSerializable(typeof(ConfigurationItem))]
+[JsonSerializable(typeof(List<ConfigurationItem>))]
+[JsonSerializable(typeof(List<LSPAny>))]
 // ReSharper disable once ClassNeverInstantiated.Global
 internal partial class JsonProtocolContext: JsonSerializerContext;

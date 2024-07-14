@@ -4,6 +4,8 @@ using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ApplyWorkspaceEdi
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.PublishDiagnostics;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.Registration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ShowMessage;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.Configuration;
+using EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 namespace EmmyLua.LanguageServer.Framework.Server;
 
@@ -28,6 +30,13 @@ public class ClientProxy(LanguageServer server)
         var document = JsonSerializer.SerializeToDocument(@params, server.JsonSerializerOptions);
         var response = await server.SendRequest("workspace/applyEdit", document, token);
         return response!.Deserialize<ApplyWorkspaceEditResult>(server.JsonSerializerOptions)!;
+    }
+
+    public async Task<List<LSPAny>> GetConfiguration(ConfigurationParams @params, CancellationToken token)
+    {
+        var document = JsonSerializer.SerializeToDocument(@params, server.JsonSerializerOptions);
+        var response = await server.SendRequest("workspace/configuration", document, token);
+        return response!.Deserialize<List<LSPAny>>(server.JsonSerializerOptions)!;
     }
 
     public Task ShowMessage(ShowMessageParams @params)

@@ -18,8 +18,4 @@
         <RepositoryUrl>https://github.com/CppCXY/LanguageServer.Framework</RepositoryUrl>
         <PackageTags>lsp,aot</PackageTags>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Folder Include="Protocol\Message\Configuration\" />
-    </ItemGroup>
 </Project>
