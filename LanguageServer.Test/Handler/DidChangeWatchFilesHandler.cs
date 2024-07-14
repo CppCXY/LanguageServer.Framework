@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using EmmyLua.LanguageServer.Framework.Protocol.Capabilities.Client.ClientCapabilities;
+﻿using EmmyLua.LanguageServer.Framework.Protocol.Capabilities.Client.ClientCapabilities;
 using EmmyLua.LanguageServer.Framework.Protocol.Capabilities.Server;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.Registration;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile;
@@ -35,8 +34,6 @@ public class DidChangeWatchFilesHandler : DidChangeWatchedFilesHandlerBase
             ]
         };
         
-        var jsonDocument = JsonSerializer.SerializeToDocument(dynamicRegistration, server.JsonSerializerOptions);
-        
         server.Client.DynamicRegisterCapability(new RegistrationParams()
         {
             Registrations =
@@ -45,7 +42,7 @@ public class DidChangeWatchFilesHandler : DidChangeWatchedFilesHandlerBase
                 {
                     Id = Guid.NewGuid().ToString(),
                     Method = "workspace/didChangeWatchedFiles",
-                    RegisterOptions = jsonDocument
+                    RegisterOptions = dynamicRegistration
                 }
             ]
         });

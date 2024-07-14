@@ -25,5 +25,5 @@ public class Registration
      * Options necessary for the registration.
      */
     [JsonPropertyName("registerOptions")]
-    public JsonDocument? RegisterOptions { get; set; }
+    public object? RegisterOptions { get; set; }
 }
