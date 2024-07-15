@@ -240,6 +240,7 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(SemanticTokensEdit))]
 [JsonSerializable(typeof(List<SemanticTokensEdit>))]
 [JsonSerializable(typeof(SemanticTokensRangeParams))]
+[JsonSerializable(typeof(SemanticTokens))]
 [JsonSerializable(typeof(TypeHierarchyItem))]
 [JsonSerializable(typeof(List<TypeHierarchyItem>))]
 [JsonSerializable(typeof(TypeHierarchyResponse))]

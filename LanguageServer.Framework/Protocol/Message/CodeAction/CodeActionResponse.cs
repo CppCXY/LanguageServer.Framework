@@ -5,6 +5,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Model;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.CodeAction;
 
+[JsonConverter(typeof(CodeActionResponseJsonConverter))]
 public class CodeActionResponse
 {
     public CodeActionResponse(List<CommandOrCodeAction> commandOrCodeActions)
@@ -24,6 +25,20 @@ public class CodeActionResponse
 
     public List<CommandOrCodeAction> CommandOrCodeActions { get; set; }
 }
+
+public class CodeActionResponseJsonConverter : JsonConverter<CodeActionResponse>
+{
+    public override CodeActionResponse Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        throw new UnreachableException();
+    }
+
+    public override void Write(Utf8JsonWriter writer, CodeActionResponse value, JsonSerializerOptions options)
+    {
+        JsonSerializer.Serialize(writer, value.CommandOrCodeActions, options);
+    }
+}
+
 
 [JsonConverter(typeof(CommandOrCodeActionJsonConverter))]
 public class CommandOrCodeAction
