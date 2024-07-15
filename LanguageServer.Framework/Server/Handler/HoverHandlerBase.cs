@@ -7,7 +7,7 @@ namespace EmmyLua.LanguageServer.Framework.Server.Handler;
 
 public abstract class HoverHandlerBase : IJsonHandler
 {
-    protected abstract Task<HoverResponse> Handle(HoverParams request, CancellationToken token);
+    protected abstract Task<HoverResponse?> Handle(HoverParams request, CancellationToken token);
 
     public void RegisterHandler(LanguageServer server)
     {

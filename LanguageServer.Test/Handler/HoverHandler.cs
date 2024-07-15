@@ -8,7 +8,7 @@ namespace EmmyLua.LanguageServer.Framework.Handler;
 
 public class HoverHandler : HoverHandlerBase
 {
-    protected override Task<HoverResponse> Handle(HoverParams request, CancellationToken token)
+    protected override Task<HoverResponse?> Handle(HoverParams request, CancellationToken token)
     {
         Console.Error.WriteLine("HoverHandler.Handle");
         return Task.FromResult(new HoverResponse()

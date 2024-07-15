@@ -40,9 +40,12 @@ public class Diagnostic
 
     /**
      * The diagnostic's message.
+     *
+     * @since 3.18.0 - support for MarkupContent. This is guarded by the client
+     * capability `textDocument.diagnostic.markupMessageSupport`.
      */
     [JsonPropertyName("message")]
-    public StringOrMarkupContent Message { get; set; }
+    public StringOrMarkupContent Message { get; set; } = string.Empty;
 
     /**
      * An array of related diagnostic information, e.g. when symbol-names within
