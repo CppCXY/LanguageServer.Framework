@@ -1,6 +1,5 @@
 ﻿using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Diagnostic;
-using EmmyLua.LanguageServer.Framework.Protocol.Model.Kind;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Message.CodeAction;
 
@@ -24,7 +23,7 @@ public class CodeActionContext
      * them.
      */
     [JsonPropertyName("diagnostics")]
-    public List<Diagnostic> Diagnostics { get; set; } = [];
+    public List<Diagnostic> Diagnostics { get; set; } = null!;
 
     /**
      * Requested kind of actions to return.

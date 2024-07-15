@@ -233,16 +233,16 @@ public class ServerCapabilities
      *
      * @since 3.17.0
      */
-    [JsonPropertyName("inlineValuesProvider"), JsonConverter(typeof(BooleanOrConverter<InlineValuesOptions>))]
-    public BooleanOr<InlineValuesOptions>? InlineValuesProvider { get; set; }
+    [JsonPropertyName("inlineValueProvider"), JsonConverter(typeof(BooleanOrConverter<InlineValuesOptions>))]
+    public BooleanOr<InlineValuesOptions>? InlineValueProvider { get; set; }
 
     /**
      * The server provides inlay hints.
      *
      * @since 3.17.0
      */
-    [JsonPropertyName("inlayHintsProvider"), JsonConverter(typeof(BooleanOrConverter<InlayHintsOptions>))]
-    public BooleanOr<InlayHintsOptions>? InlayHintsProvider { get; set; }
+    [JsonPropertyName("inlayHintProvider"), JsonConverter(typeof(BooleanOrConverter<InlayHintsOptions>))]
+    public BooleanOr<InlayHintsOptions>? InlayHintProvider { get; set; }
 
     /**
      * The server has support for pull model diagnostics.
@@ -263,8 +263,8 @@ public class ServerCapabilities
      *
      * @since 3.18.0
      */
-    [JsonPropertyName("inlineCompletionsProvider"), JsonConverter(typeof(BooleanOrConverter<InlineCompletionsOptions>))]
-    public BooleanOr<InlineCompletionsOptions>? InlineCompletionsProvider { get; set; }
+    [JsonPropertyName("inlineCompletionProvider"), JsonConverter(typeof(BooleanOrConverter<InlineCompletionsOptions>))]
+    public BooleanOr<InlineCompletionsOptions>? InlineCompletionProvider { get; set; }
 
     /**
      * Text document specific server capabilities.
