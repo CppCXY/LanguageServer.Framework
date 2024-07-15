@@ -20,7 +20,8 @@ public readonly record struct BooleanOr<T>
     public BooleanOr(bool value)
     {
         Value = default!;
-        IsValue = value;
+        IsValue = false;
+        BoolValue = value;
     }
 
     public static implicit operator BooleanOr<T>(T value) => new(value);
@@ -32,17 +33,12 @@ public class BooleanOrConverter<T> : JsonConverter<BooleanOr<T>>
 {
     public override BooleanOr<T> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        if (reader.TokenType == JsonTokenType.True)
+        return reader.TokenType switch
         {
-            return new BooleanOr<T>(true);
-        }
-
-        if (reader.TokenType == JsonTokenType.False)
-        {
-            return new BooleanOr<T>(false);
-        }
-
-        return new BooleanOr<T>(JsonSerializer.Deserialize<T>(ref reader, options)!);
+            JsonTokenType.True => new BooleanOr<T>(true),
+            JsonTokenType.False => new BooleanOr<T>(false),
+            _ => new BooleanOr<T>(JsonSerializer.Deserialize<T>(ref reader, options)!)
+        };
     }
 
     public override void Write(Utf8JsonWriter writer, BooleanOr<T> value, JsonSerializerOptions options)

@@ -35,7 +35,7 @@ ls.OnInitialize((c, s) =>
     Console.Error.WriteLine("initialize");
 });
 ls.OnInitialized((c) => { Console.Error.WriteLine("initialized"); });
-ls.AddHandler(new TextDocumentHandler());
+ls.AddHandler(new TextDocumentHandler(ls));
 ls.AddHandler(new DeclarationHandler());
 ls.AddHandler(new DefinitionHandler());
 ls.AddHandler(new ImplementationHandler());
