@@ -5,7 +5,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Model.Markup;
 namespace EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 
 [JsonConverter(typeof(StringOrMarkupContentConverter))]
-public readonly record struct StringOrMarkupContent
+public class StringOrMarkupContent
 {
     public string? StringValue { get; }
 

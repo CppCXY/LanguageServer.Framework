@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 
 [JsonConverter(typeof(StringOrIntConverter))]
-public readonly record struct StringOrInt
+public class StringOrInt
 {
     public int IntValue { get; } = 0;
 

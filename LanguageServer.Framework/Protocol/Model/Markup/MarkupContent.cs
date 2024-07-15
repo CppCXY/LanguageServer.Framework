@@ -34,7 +34,7 @@ public class MarkupContent
      * The type of the Markup.
      */
     [JsonPropertyName("kind")]
-    public MarkupKind Kind { get; set; }
+    public MarkupKind Kind { get; set; } = MarkupKind.Markdown;
 
     /**
      * The content itself.

@@ -16,8 +16,4 @@ public readonly record struct Location(DocumentUri Uri, DocumentRange Range)
      */
     [JsonPropertyName("range")]
     public DocumentRange Range { get; init; } = Range;
-
-    public Location() : this(default, default)
-    {
-    }
 }

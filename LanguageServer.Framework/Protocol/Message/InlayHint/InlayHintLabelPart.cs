@@ -24,7 +24,7 @@ public class InlayHintLabelPart
      * this property late using the resolve request.
      */
     [JsonPropertyName("tooltip")]
-    public StringOrMarkupContent Tooltip { get; set; }
+    public StringOrMarkupContent? Tooltip { get; set; }
 
     /**
      * An optional source code location that represents this

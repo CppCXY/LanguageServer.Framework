@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 
-public readonly record struct BooleanOr<T>
+public class BooleanOr<T>
 {
     public T? Value { get; } = default;
 
