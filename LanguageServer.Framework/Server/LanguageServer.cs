@@ -105,7 +105,7 @@ public class LanguageServer
         return await ServerRequestManager.WaitResponse(request.Id, token);
     }
 
-    public delegate void InitializeEvent(InitializeParams request, ServerInfo serverInfo);
+    public delegate Task InitializeEvent(InitializeParams request, ServerInfo serverInfo);
 
     internal InitializeEvent? InitializeEventDelegate;
 
@@ -114,7 +114,7 @@ public class LanguageServer
         InitializeEventDelegate += handler;
     }
 
-    public delegate void InitializedEvent(InitializedParams request);
+    public delegate Task InitializedEvent(InitializedParams request);
 
     internal InitializedEvent? InitializedEventDelegate;
 
@@ -123,7 +123,7 @@ public class LanguageServer
         InitializedEventDelegate += handler;
     }
 
-    public delegate void ShutdownEvent();
+    public delegate Task ShutdownEvent();
 
     internal ShutdownEvent? ShutdownEventDelegate;
 

@@ -47,7 +47,7 @@ public class TextDocumentHandler(Server.LanguageServer server) : TextDocumentHan
             }
         ];
         
-        server.Client.PushDiagnostics(new PublishDiagnosticsParams()
+        server.Client.PublishDiagnostics(new PublishDiagnosticsParams()
         {
             Uri = request.TextDocument.Uri,
             Diagnostics = diagnosticList

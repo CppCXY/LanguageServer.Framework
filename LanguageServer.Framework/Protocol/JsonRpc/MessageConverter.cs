@@ -33,10 +33,31 @@ public class MessageConverter : JsonConverter<Message>
                 return new NotificationMessage(method, paramDocument);
             }
         }
+        else if (root.TryGetProperty("id", out var id))
+        {
+            JsonDocument? resultDocument = null;
+            if (root.TryGetProperty("result", out var result))
+            {
+                resultDocument = JsonDocument.Parse(result.GetRawText());
+            }
 
-        // Fallback to default deserialization for other methods
-        // This part needs to be adjusted based on your specific needs and structure
-        return JsonSerializer.Deserialize<Message>(root.GetRawText(), options)!;
+            ResponseError? error = null;
+            if (root.TryGetProperty("error", out var errorElement))
+            {
+                error = JsonSerializer.Deserialize<ResponseError>(errorElement.GetRawText());
+            }
+
+            if (id.ValueKind == JsonValueKind.Number)
+            {
+                return new ResponseMessage(id.GetInt32(), resultDocument, error);
+            }
+            else if (id.ValueKind == JsonValueKind.String)
+            {
+                return new ResponseMessage(id.GetString()!, resultDocument, error);
+            }
+        }
+
+        throw new JsonException("Invalid JSON-RPC message");
     }
 
     public override void Write(Utf8JsonWriter writer, Message value, JsonSerializerOptions options)

@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 using EmmyLua.LanguageServer.Framework.Handler;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.Configuration;
 using EmmyLua.LanguageServer.Framework.Server;
 
 
@@ -33,8 +34,24 @@ ls.OnInitialize((c, s) =>
     s.Name = "EmmyLua.Test";
     s.Version = "1.0.0";
     Console.Error.WriteLine("initialize");
+    return Task.CompletedTask;
 });
-ls.OnInitialized((c) => { Console.Error.WriteLine("initialized"); });
+ls.OnInitialized(async (c) =>
+{
+    Console.Error.WriteLine("initialized");
+    var r = await ls.Client.GetConfiguration(new ConfigurationParams()
+    {
+        Items =
+        [
+            new ConfigurationItem()
+            {
+                Section = "files"
+            }
+        ]
+    }, CancellationToken.None);
+    
+    Console.Error.WriteLine(r);
+});
 ls.AddHandler(new TextDocumentHandler(ls));
 ls.AddHandler(new DeclarationHandler());
 ls.AddHandler(new DefinitionHandler());

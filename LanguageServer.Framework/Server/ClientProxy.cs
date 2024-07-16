@@ -46,7 +46,7 @@ public class ClientProxy(LanguageServer server)
         return server.SendNotification(notification);
     }
 
-    public Task PushDiagnostics(PublishDiagnosticsParams @params)
+    public Task PublishDiagnostics(PublishDiagnosticsParams @params)
     {
         var document = JsonSerializer.SerializeToDocument(@params, server.JsonSerializerOptions);
         var notification = new NotificationMessage("textDocument/publishDiagnostics", document);
