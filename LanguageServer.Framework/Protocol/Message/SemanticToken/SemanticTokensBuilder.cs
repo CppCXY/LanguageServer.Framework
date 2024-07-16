@@ -12,8 +12,8 @@ public class SemanticTokensBuilder
     {
         public Position Position { get; set; }
         public int Length { get; set; }
-        public int TokenType { get; set; }
-        public int Modifiers { get; set; }
+        public uint TokenType { get; set; }
+        public uint Modifiers { get; set; }
     }
 
     private List<SemanticTokenData> Data { get; } = new();
@@ -31,6 +31,18 @@ public class SemanticTokensBuilder
         }
     }
 
+    public void Push(Position startPosition, int length, string tokenType)
+    {
+        var tokenTypeIndex = TokenTypeToId[tokenType];
+        Data.Add(new SemanticTokenData
+        {
+            Position = startPosition,
+            Length = length,
+            TokenType = (uint)tokenTypeIndex,
+            Modifiers = 0
+        });
+    }
+
     public void Push(Position startPosition, int length, string tokenType, string modifiers)
     {
         var tokenTypeIndex = TokenTypeToId[tokenType];
@@ -39,8 +51,26 @@ public class SemanticTokensBuilder
         {
             Position = startPosition,
             Length = length,
-            TokenType = tokenTypeIndex,
-            Modifiers = tokenModifierIndex
+            TokenType = (uint)tokenTypeIndex,
+            Modifiers = 1u << tokenModifierIndex
+        });
+    }
+
+    public void Push(Position startPosition, int length, string tokenType, List<string> modifiers)
+    {
+        var tokenTypeIndex = TokenTypeToId[tokenType];
+        uint tokenModifier = 0;
+        foreach (var modifier in modifiers)
+        {
+            var tokenModifierIndex = TokenModifierToId[modifier];
+            tokenModifier |= 1u << tokenModifierIndex;
+        }
+        Data.Add(new SemanticTokenData
+        {
+            Position = startPosition,
+            Length = length,
+            TokenType = (uint)tokenTypeIndex,
+            Modifiers = tokenModifier
         });
     }
 
@@ -76,8 +106,8 @@ public class SemanticTokensBuilder
             var deltaCh = ch - prevCh;
             result.Add((uint)deltaCh);
             result.Add((uint)semanticTokenData.Length);
-            result.Add((uint)semanticTokenData.TokenType);
-            result.Add((uint)semanticTokenData.Modifiers);
+            result.Add(semanticTokenData.TokenType);
+            result.Add(semanticTokenData.Modifiers);
             prevLine = line;
             prevCh = ch;
         }

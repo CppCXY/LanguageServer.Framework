@@ -18,7 +18,7 @@ public abstract class TypeHierarchyHandlerBase : IJsonHandler
 
     public void RegisterHandler(LanguageServer server)
     {
-        server.AddRequestHandler("‘textDocument/prepareTypeHierarchy", async (message, token) =>
+        server.AddRequestHandler("textDocument/prepareTypeHierarchy", async (message, token) =>
         {
             var request = message.Params!.Deserialize<TypeHierarchyPrepareParams>(server.JsonSerializerOptions)!;
             var r = await Handle(request, token);
