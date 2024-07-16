@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFrameworks>net9.0;net8.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>EmmyLua.LanguageServer.Framework</RootNamespace>
         <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>EmmyLua.LanguageServer.Framework</PackageId>
-        <Version>0.3.3</Version>
+        <Version>0.4.0</Version>
         <Title>EmmyLua.LanguageServer.Framework</Title>
         <Authors>CppCXY</Authors>
         <Description>language server framework, support lsp3.18 and dotnet aot compilation</Description>
@@ -18,7 +18,7 @@
         <RepositoryUrl>https://github.com/CppCXY/LanguageServer.Framework</RepositoryUrl>
         <PackageTags>lsp,aot</PackageTags>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+        <DocumentationFile>bin\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
         <NoWarn>$(NoWarn);1591</NoWarn>
         <NoWarn>$(NoWarn);1570</NoWarn>
     </PropertyGroup>
