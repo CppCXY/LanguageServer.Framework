@@ -64,10 +64,9 @@ public class LanguageServer
         return new LanguageServer(input, output);
     }
 
-    public LanguageServer SupportMultiThread()
+    public void SetScheduler(IScheduler scheduler)
     {
-        Scheduler = new MultiThreadScheduler();
-        return this;
+        Scheduler = scheduler;
     }
 
     public void AddJsonSerializeContext(JsonSerializerContext serializerContext)
@@ -271,7 +270,7 @@ public class LanguageServer
                     continue;
                 }
 
-                Scheduler.Schedule(async () => await OnDispatch(message));
+                Scheduler.Schedule(OnDispatch, message);
             }
         }
         catch (Exception e)

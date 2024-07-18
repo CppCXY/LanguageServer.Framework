@@ -20,6 +20,6 @@ public class WorkspaceSymbolResponseJsonConverter : JsonConverter<WorkspaceSymbo
 
     public override void Write(Utf8JsonWriter writer, WorkspaceSymbolResponse value, JsonSerializerOptions options)
     {
-        JsonSerializer.Serialize(writer, value, options);
+        JsonSerializer.Serialize(writer, value.Symbols, options);
     }
 }

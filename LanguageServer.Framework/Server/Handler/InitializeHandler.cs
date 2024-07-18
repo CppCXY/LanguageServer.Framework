@@ -29,12 +29,12 @@ internal class InitializeHandler(LanguageServer server) : IJsonHandler
 
     private Task Handle(InitializedParams request, CancellationToken cancellationToken)
     {
+        server.InitializedEventDelegate?.Invoke(request);
+
         foreach (var handler in server.Handlers)
         {
             handler.RegisterDynamicCapability(server, server.ClientCapabilities);
         }
-
-        server.InitializedEventDelegate?.Invoke(request);
         return Task.CompletedTask;
     }
 

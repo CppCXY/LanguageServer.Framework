@@ -8,7 +8,7 @@
         <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>EmmyLua.LanguageServer.Framework</PackageId>
-        <Version>0.4.0</Version>
+        <Version>0.5.0</Version>
         <Title>EmmyLua.LanguageServer.Framework</Title>
         <Authors>CppCXY</Authors>
         <Description>language server framework, support lsp3.18 and dotnet aot compilation</Description>
