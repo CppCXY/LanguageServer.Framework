@@ -19,6 +19,6 @@ public class InlineValueContext
      * Typically, the end position of the range denotes the line where the
      * inline values are shown.
      */
-    [JsonPropertyName("range")]
-    public DocumentRange Range { get; set; }
+    [JsonPropertyName("stoppedLocation")]
+    public DocumentRange StoppedLocation { get; set; }
 }
