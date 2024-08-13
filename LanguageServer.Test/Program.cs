@@ -75,4 +75,5 @@ ls.AddHandler(new SelectionRangeHandler());
 ls.AddHandler(new DidChangeWatchFilesHandler());
 ls.AddHandler(new InlayHintHandler());
 ls.AddHandler(new SemanticTokensHandler());
+ls.AddHandler(new InlineValueHandler());
 await ls.Run();

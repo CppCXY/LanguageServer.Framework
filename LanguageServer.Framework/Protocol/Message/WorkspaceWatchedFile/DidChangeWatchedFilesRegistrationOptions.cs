@@ -1,4 +1,6 @@
-﻿namespace EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile;
+﻿using System.Text.Json.Serialization;
+
+namespace EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile;
 
 using FileSystemWatcher =
     EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile.Watch.FileSystemWatcher;
@@ -11,5 +13,6 @@ public class DidChangeWatchedFilesRegistrationOptions
     /**
      * The watchers to register.
      */
+    [JsonPropertyName("watchers")]
     public List<FileSystemWatcher> Watchers { get; set; } = null!;
 }
