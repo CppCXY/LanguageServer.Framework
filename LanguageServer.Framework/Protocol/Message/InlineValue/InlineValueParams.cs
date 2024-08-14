@@ -24,7 +24,7 @@ public class InlineValueParams : IWorkDoneProgressParams
     /**
      * The document range for which inline values should be computed.
      */
-    [JsonPropertyName("position")]
+    [JsonPropertyName("range")]
     public DocumentRange Range { get; set; }
 
     /**
