@@ -14,15 +14,15 @@ public class ClientProxy(LanguageServer server)
     public Task DynamicRegisterCapability(RegistrationParams @params)
     {
         var document = JsonSerializer.SerializeToDocument(@params, server.JsonSerializerOptions);
-        var notification = new NotificationMessage("client/registerCapability", document);
-        return server.SendNotification(notification);
+        server.SendRequestNoWait("client/registerCapability", document);
+        return Task.CompletedTask;
     }
 
     public Task DynamicUnregisterCapability(UnregistrationParams @params)
     {
         var document = JsonSerializer.SerializeToDocument(@params, server.JsonSerializerOptions);
-        var notification = new NotificationMessage("client/unregisterCapability", document);
-        return server.SendNotification(notification);
+        server.SendRequestNoWait("client/unregisterCapability", document);
+        return Task.CompletedTask;
     }
 
     public async Task<ApplyWorkspaceEditResult> ApplyEdit(ApplyWorkspaceEditParams @params, CancellationToken token)

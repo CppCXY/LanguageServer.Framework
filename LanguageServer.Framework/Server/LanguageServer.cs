@@ -104,6 +104,13 @@ public class LanguageServer
         return await ServerRequestManager.WaitResponse(request.Id, token);
     }
 
+    public Task SendRequestNoWait(string method, JsonDocument? @param)
+    {
+        var request = ServerRequestManager.MakeRequest(method, @param);
+        Writer.WriteRequest(request);
+        return Task.CompletedTask;
+    }
+
     public delegate Task InitializeEvent(InitializeParams request, ServerInfo serverInfo);
 
     internal InitializeEvent? InitializeEventDelegate;
