@@ -58,6 +58,9 @@ public class MarkedStringsOrMarkupContentJsonConverter : JsonConverter<MarkedStr
 
     public override void Write(Utf8JsonWriter writer, MarkedStringsOrMarkupContent value, JsonSerializerOptions options)
     {
-        throw new NotSupportedException("It only use Deserialize.");
+        if (value.MarkedStrings is not null && value.MarkupContent is null)
+            writer.WriteRawValue(JsonSerializer.Serialize(value.MarkedStrings, options));
+        if (value.MarkupContent is not null && value.MarkedStrings is null)
+            writer.WriteRawValue(JsonSerializer.Serialize(value.MarkupContent, options));
     }
 }
