@@ -56,7 +56,8 @@ using EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.WorkDoneProgress;
 using EmmyLua.LanguageServer.Framework.Protocol.Union;
 using EmmyLua.LanguageServer.Framework.Protocol.Supplement;
-using FileSystemWatcher = EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile.Watch.FileSystemWatcher;
+using FileSystemWatcher =
+    EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile.Watch.FileSystemWatcher;
 using FoldingRangeKind = EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange.FoldingRangeKind;
 using MessageType = EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ShowMessage.MessageType;
 
@@ -311,8 +312,6 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(ConfigurationItem))]
 [JsonSerializable(typeof(List<ConfigurationItem>))]
 [JsonSerializable(typeof(List<LSPAny>))]
-[JsonSerializable(typeof(UniquenessLevel))]
-[JsonSerializable(typeof(MonikerKind))]
 [JsonSerializable(typeof(ShowDocumentResult))]
 [JsonSerializable(typeof(MessageActionItem))]
 [JsonSerializable(typeof(Moniker))]
@@ -331,11 +330,13 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(Hover))]
 [JsonSerializable(typeof(MarkedString))]
 [JsonSerializable(typeof(List<MarkedString>))]
-[JsonSerializable(typeof(MarkedStringsOrMarkupContent))]
 [JsonSerializable(typeof(LogMessageParams))]
 [JsonSerializable(typeof(MessageType))]
 [JsonSerializable(typeof(DidChangeConfigurationParams))]
 [JsonSerializable(typeof(SymbolInformation))]
+[JsonSerializable(typeof(MarkedStringsOrMarkupContent.InternalMarkedStrings))]
+[JsonSerializable(typeof(MarkedStringsOrMarkupContent.InternalMarkupContent))]
 [JsonSerializable(typeof(List<SymbolTag>))]
+[JsonSerializable(typeof(PrepareRenameResult))]
 // ReSharper disable once ClassNeverInstantiated.Global
-public partial class JsonProtocolContext: JsonSerializerContext;
+public partial class JsonProtocolContext : JsonSerializerContext;
