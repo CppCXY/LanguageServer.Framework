@@ -54,8 +54,11 @@ using EmmyLua.LanguageServer.Framework.Protocol.Model.TextDocument;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.TextEdit;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.WorkDoneProgress;
+using EmmyLua.LanguageServer.Framework.Protocol.Union;
+using WCKYWCKF.EmmyLua.LanguageServer.Framework.ClientEx.Protocol;
 using FileSystemWatcher = EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile.Watch.FileSystemWatcher;
 using FoldingRangeKind = EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange.FoldingRangeKind;
+using MessageType = EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ShowMessage.MessageType;
 
 
 namespace EmmyLua.LanguageServer.Framework.Protocol;
@@ -310,5 +313,29 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(List<LSPAny>))]
 [JsonSerializable(typeof(UniquenessLevel))]
 [JsonSerializable(typeof(MonikerKind))]
+[JsonSerializable(typeof(ShowDocumentResult))]
+[JsonSerializable(typeof(MessageActionItem))]
+[JsonSerializable(typeof(Moniker))]
+[JsonSerializable(typeof(ShowDocumentParams))]
+[JsonSerializable(typeof(ShowMessageRequestParams))]
+[JsonSerializable(typeof(MonikerParams))]
+[JsonSerializable(typeof(MonikerKind))]
+[JsonSerializable(typeof(UniquenessLevel))]
+[JsonSerializable(typeof(ProgressToken))]
+[JsonSerializable(typeof(WorkDoneProgressCancelParams))]
+[JsonSerializable(typeof(WorkDoneProgressCreateParams))]
+[JsonSerializable(typeof(TextDocumentContentParams))]
+[JsonSerializable(typeof(TextDocumentContentResult))]
+[JsonSerializable(typeof(LogTraceParams))]
+[JsonSerializable(typeof(TextDocumentContentRefreshParams))]
+[JsonSerializable(typeof(Hover))]
+[JsonSerializable(typeof(MarkedString))]
+[JsonSerializable(typeof(List<MarkedString>))]
+[JsonSerializable(typeof(MarkedStringsOrMarkupContent))]
+[JsonSerializable(typeof(LogMessageParams))]
+[JsonSerializable(typeof(MessageType))]
+[JsonSerializable(typeof(DidChangeConfigurationParams))]
+[JsonSerializable(typeof(SymbolInformation))]
+[JsonSerializable(typeof(List<SymbolTag>))]
 // ReSharper disable once ClassNeverInstantiated.Global
 public partial class JsonProtocolContext: JsonSerializerContext;
