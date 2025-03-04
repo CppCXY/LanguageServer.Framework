@@ -5,7 +5,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Model;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Markup;
 using EmmyLua.LanguageServer.Framework.Protocol.Union;
 
-namespace WCKYWCKF.EmmyLua.LanguageServer.Framework.ClientEx.Protocol;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Supplement;
 
 public record Hover
 {

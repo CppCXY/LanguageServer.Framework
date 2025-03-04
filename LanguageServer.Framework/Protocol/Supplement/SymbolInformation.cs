@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Message.DocumentSymbol;
 using EmmyLua.LanguageServer.Framework.Protocol.Model;
 
-namespace WCKYWCKF.EmmyLua.LanguageServer.Framework.ClientEx.Protocol;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Supplement;
 
 /**
  * Represents information about programming constructs like variables, classes,

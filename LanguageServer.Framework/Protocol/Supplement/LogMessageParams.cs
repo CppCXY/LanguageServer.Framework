@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ShowMessage;
 
-namespace WCKYWCKF.EmmyLua.LanguageServer.Framework.ClientEx.Protocol;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Supplement;
 
 public record LogMessageParams
 {

@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 
-namespace WCKYWCKF.EmmyLua.LanguageServer.Framework.ClientEx.Protocol;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Supplement;
 
 [JsonConverter(typeof(ProgressTokenJsonConverter))]
 public sealed class ProgressToken : StringOrInt

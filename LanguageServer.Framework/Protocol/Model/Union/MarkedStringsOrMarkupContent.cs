@@ -2,7 +2,7 @@
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Markup;
-using WCKYWCKF.EmmyLua.LanguageServer.Framework.ClientEx.Protocol;
+using EmmyLua.LanguageServer.Framework.Protocol.Supplement;
 
 namespace EmmyLua.LanguageServer.Framework.Protocol.Union;
 

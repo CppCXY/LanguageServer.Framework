@@ -2,7 +2,7 @@ using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace WCKYWCKF.EmmyLua.LanguageServer.Framework.ClientEx.Protocol;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Supplement;
 
 [JsonConverter(typeof(MarkedStringJsonConverter))]
 public class MarkedString

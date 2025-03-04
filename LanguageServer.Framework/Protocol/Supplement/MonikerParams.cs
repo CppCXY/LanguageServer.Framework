@@ -1,7 +1,7 @@
 ﻿using EmmyLua.LanguageServer.Framework.Protocol.Message.Interface;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.TextDocument;
 
-namespace WCKYWCKF.EmmyLua.LanguageServer.Framework.ClientEx.Protocol;
+namespace EmmyLua.LanguageServer.Framework.Protocol.Supplement;
 
 public sealed class MonikerParams : TextDocumentPositionParams, IWorkDoneProgressParams, IPartialResultParams
 {

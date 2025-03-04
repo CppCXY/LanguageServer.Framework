@@ -55,7 +55,7 @@ using EmmyLua.LanguageServer.Framework.Protocol.Model.TextEdit;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.Union;
 using EmmyLua.LanguageServer.Framework.Protocol.Model.WorkDoneProgress;
 using EmmyLua.LanguageServer.Framework.Protocol.Union;
-using WCKYWCKF.EmmyLua.LanguageServer.Framework.ClientEx.Protocol;
+using EmmyLua.LanguageServer.Framework.Protocol.Supplement;
 using FileSystemWatcher = EmmyLua.LanguageServer.Framework.Protocol.Message.WorkspaceWatchedFile.Watch.FileSystemWatcher;
 using FoldingRangeKind = EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange.FoldingRangeKind;
 using MessageType = EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ShowMessage.MessageType;
