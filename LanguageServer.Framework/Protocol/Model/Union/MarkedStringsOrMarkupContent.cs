@@ -25,12 +25,12 @@ public class MarkedStringsOrMarkupContentJsonConverter : JsonConverter<MarkedStr
             if (jsonNode?["language"] is not null && jsonNode.Deserialize<MarkedString>(options) is { } markedString)
                 return new MarkedStringsOrMarkupContent.InternalMarkedStrings([markedString]);
 
-            return new MarkedStringsOrMarkupContent.InternalMarkupContent(jsonNode.Deserialize<MarkupContent>());
+            return new MarkedStringsOrMarkupContent.InternalMarkupContent(jsonNode.Deserialize<MarkupContent>(options));
         }
 
         if (reader.TokenType == JsonTokenType.StartArray)
 
-            return new MarkedStringsOrMarkupContent.InternalMarkedStrings(jsonNode.Deserialize<List<MarkedString>>());
+            return new MarkedStringsOrMarkupContent.InternalMarkedStrings(jsonNode.Deserialize<List<MarkedString>>(options));
 
 
         if (reader.TokenType == JsonTokenType.String)

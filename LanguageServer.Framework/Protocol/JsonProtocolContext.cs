@@ -61,7 +61,6 @@ using FileSystemWatcher =
 using FoldingRangeKind = EmmyLua.LanguageServer.Framework.Protocol.Message.FoldingRange.FoldingRangeKind;
 using MessageType = EmmyLua.LanguageServer.Framework.Protocol.Message.Client.ShowMessage.MessageType;
 
-
 namespace EmmyLua.LanguageServer.Framework.Protocol;
 
 [JsonSourceGenerationOptions(GenerationMode = JsonSourceGenerationMode.Metadata)]
