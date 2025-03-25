@@ -76,20 +76,20 @@ public abstract class LSPCommunicationBase
         return this;
     }
 
-    public Task SendNotification(NotificationMessage notification)
+    public virtual Task SendNotification(NotificationMessage notification)
     {
         Writer.WriteNotification(notification);
         return Task.CompletedTask;
     }
 
-    public async Task<JsonDocument?> SendRequest(string method, JsonDocument? @param, CancellationToken token)
+    public virtual async Task<JsonDocument?> SendRequest(string method, JsonDocument? @param, CancellationToken token)
     {
         var request = ServerRequestManager.MakeRequest(method, @param);
         Writer.WriteRequest(request);
         return await ServerRequestManager.WaitResponse(request.Id, token).ConfigureAwait(false);
     }
 
-    public Task SendRequestNoWait(string method, JsonDocument? @param)
+    public virtual Task SendRequestNoWait(string method, JsonDocument? @param)
     {
         var request = ServerRequestManager.MakeRequest(method, @param);
         Writer.WriteRequest(request);
