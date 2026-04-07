@@ -77,6 +77,7 @@ namespace EmmyLua.LanguageServer.Framework.Protocol;
 [JsonSerializable(typeof(MethodMessage))]
 [JsonSerializable(typeof(RequestMessage))]
 [JsonSerializable(typeof(ResponseMessage))]
+[JsonSerializable(typeof(ShutdownResponseMessage))]
 [JsonSerializable(typeof(NotificationMessage))]
 [JsonSerializable(typeof(ResponseError))]
 [JsonSerializable(typeof(InitializeParams))]
