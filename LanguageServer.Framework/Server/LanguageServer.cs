@@ -107,7 +107,7 @@ public class LanguageServer : LSPCommunicationBase
                 }
 
                 ShutdownEventDelegate?.Invoke();
-                Writer.WriteResponse(requestMessage.Id, null);
+                Writer.WriteShutdownResponse(requestMessage.Id);
                 return true;
             }
         }

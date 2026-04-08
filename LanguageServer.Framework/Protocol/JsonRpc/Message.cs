@@ -74,6 +74,19 @@ public record ResponseMessage(
     [JsonPropertyName("error")] public ResponseError? Error { get; } = Error;
 }
 
+public record ShutdownResponseMessage(
+    StringOrInt Id
+) : Message("2.0")
+{
+    [JsonPropertyName("id")] public StringOrInt Id { get; } = Id;
+
+    [JsonPropertyName("result")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public JsonDocument? Result { get; } = null;
+    // - When responding to a "shutdown" message, the result must always be null.
+    // - The JsonIgnoreCondition.Never attribute is explicitly set to serialize the JSON as null
+}
+
 public record NotificationMessage(
     string Method,
     JsonDocument? Params

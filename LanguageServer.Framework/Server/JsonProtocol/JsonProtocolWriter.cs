@@ -32,6 +32,12 @@ public class JsonProtocolWriter : IDisposable
         WriteMessage(response);
     }
 
+    public void WriteShutdownResponse(StringOrInt id)
+    {
+        var response = new ShutdownResponseMessage(id);
+        WriteMessage(response);
+    }
+
     public void WriteNotification(NotificationMessage message)
     {
         WriteMessage(message);
