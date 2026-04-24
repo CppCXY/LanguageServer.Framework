@@ -48,8 +48,7 @@ public class Diagnostic
     public StringOrMarkupContent Message { get; set; } = string.Empty;
 
     /**
-     * An array of related diagnostic information, e.g. when symbol-names within
-     * a scope collide all definitions can be marked via this property.
+     * Additional metadata about the diagnostic.
      */
     [JsonPropertyName("tags")]
     public List<DiagnosticTag>? Tags { get; set; }
